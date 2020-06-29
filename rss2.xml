@@ -4,7 +4,7 @@
   xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>逝水流年</title>
-    <link>https://xinetzone.github.io/</link>
+    <link>https://cgy233.github.io/</link>
     
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
@@ -14,8 +14,8 @@
     
     <item>
       <title>Hexo+Github配置个人博客问题总结</title>
-      <link>https://xinetzone.github.io/zh-CN/2db31772.html</link>
-      <guid>https://xinetzone.github.io/zh-CN/2db31772.html</guid>
+      <link>https://cgy233.github.io/zh-CN/2db31772.html</link>
+      <guid>https://cgy233.github.io/zh-CN/2db31772.html</guid>
       <pubDate>Mon, 29 Jun 2020 18:35:30 GMT</pubDate>
       <description>
       
@@ -30,13 +30,13 @@
       </description>
       
       
-      <comments>https://xinetzone.github.io/zh-CN/2db31772.html#disqus_thread</comments>
+      <comments>https://cgy233.github.io/zh-CN/2db31772.html#disqus_thread</comments>
     </item>
     
     <item>
       <title>hexo入门</title>
-      <link>https://xinetzone.github.io/en/3001defc.html</link>
-      <guid>https://xinetzone.github.io/en/3001defc.html</guid>
+      <link>https://cgy233.github.io/en/3001defc.html</link>
+      <guid>https://cgy233.github.io/en/3001defc.html</guid>
       <pubDate>Sat, 28 Dec 2019 11:02:16 GMT</pubDate>
       <description>
       
@@ -51,7 +51,7 @@
       </description>
       
       
-      <comments>https://xinetzone.github.io/en/3001defc.html#disqus_thread</comments>
+      <comments>https://cgy233.github.io/en/3001defc.html#disqus_thread</comments>
     </item>
     
   </channel>
