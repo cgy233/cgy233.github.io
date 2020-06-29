@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>逝水流年</title>
+    <link>https://xinetzone.github.io/</link>
+    
+    <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
+    
+    <description>广东科学技术职业学院 | 人工智能技术服务 | 深度学习</description>
+    <pubDate>Mon, 29 Jun 2020 18:37:14 GMT</pubDate>
+    <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Hexo+Github配置个人博客问题总结</title>
+      <link>https://xinetzone.github.io/zh-CN/2db31772.html</link>
+      <guid>https://xinetzone.github.io/zh-CN/2db31772.html</guid>
+      <pubDate>Mon, 29 Jun 2020 18:35:30 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;h1
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://xinetzone.github.io/zh-CN/2db31772.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>hexo入门</title>
+      <link>https://xinetzone.github.io/en/3001defc.html</link>
+      <guid>https://xinetzone.github.io/en/3001defc.html</guid>
+      <pubDate>Sat, 28 Dec 2019 11:02:16 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://xinetzone.github.io/en/3001defc.html#disqus_thread</comments>
+    </item>
+    
+  </channel>
+</rss>
