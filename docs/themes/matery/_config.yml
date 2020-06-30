@@ -53,9 +53,9 @@ time:
   enable: true
   year: 2020 # 年份
   month: 06 # 月份
-  date: 29 # 日期
-  hour: 23 # 小时
-  minute: 28 # 分钟
+  date: 30 # 日期
+  hour: 02 # 小时
+  minute: 00 # 分钟
   second: 00 # 秒
 
 # Index cover carousel configuration.
@@ -74,15 +74,15 @@ cover:
 dream:
   enable: true
   showTitle: true
-  title: 我的梦想
-  text: 这条小舟，只载你一个。
+  title: 历史
+  text: 人类从历史中学到的唯一教训，就是人类无法从历史中学到任何教训。 --黑格尔
 
 # Whether to display the musics.
 # 是否在首页显示音乐.
 music:
   enable: true
   showTitle: true
-  title: 听听音乐
+  title: 悦
   fixed: false # 开启吸底模式
   autoplay: false # 是否自动播放
   theme: '#42b983'
@@ -126,7 +126,7 @@ logo: /medias/logo.png
 # including the display name of the button, the font awesome icon, and the hyperlink to the button.
 # 首页 banner 中的第二个按钮的配置，包括按钮的显示名称、font awesome图标和按钮的超链接.
 indexbtn:
-  enable: true
+  enable: false
   name: cnblogs
   icon: fas fa-fire
   url: https://www.cnblogs.com/q735613050/
@@ -136,13 +136,13 @@ indexbtn:
 # 首页 banner 中的第二行个人信息配置，留空即不启用
 socialLink:
   github: cgy233
-  email: xinzone@outlook.com
+  email: cgy233@outlook.com
   facebook: 
   twitter: 
-  qq: 735613050
+  qq: 1781387847
   weibo: 
-  zhihu: liu-xin-wei-55
-  Linkedin: xinet
+  zhihu: 
+  Linkedin: 
   rss2: true # true、false
 
 # Whether to activate the Post TOC, and Configure which title types are supported by TOC support.
@@ -207,7 +207,7 @@ profile:
 # If you don't want to display this `My Projects` content, you can deactivate or delete this configuration.
 # 在“关于”页面配置"我的项目"信息，如果你不需要这些信息则可以将其设置为不激活或者将其删除.
 myProjects:
-  enable: true
+  enable: false
   data:
     cocoapi:
         icon: fas fa-file-code
@@ -222,7 +222,7 @@ myProjects:
     cv-actions:
         icon: fas fa-comments
         iconBackground: 'linear-gradient(to bottom right, #1000F6 0%, #6E085E 100%)'
-        url: https://github.com/cgy233/cv-actions
+        url: https://github.com/xinetzone/cv-actions
         desc: 计算机视觉社区。
 
 # config my skills informations in about page.
@@ -447,7 +447,7 @@ featureImages:
 # noreprint（不允许转载 not allowed to reprint）
 # pay（付费转载 pay for reprinting）
 reprint:
-  enable: true # whether enable reprint section 是否启用“转载规则限定模块”
+  enable: false# whether enable reprint section 是否启用“转载规则限定模块”
   default: cc_by
 
 # DaoVoice online contact

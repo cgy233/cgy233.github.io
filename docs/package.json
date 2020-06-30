@@ -9,13 +9,13 @@
     "server": "hexo server"
   },
   "hexo": {
-    "version": "4.2.0"
+    "version": "4.2.1"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "babel-runtime": "^6.26.0",
     "core-js": "^3.6.5",
-    "hexo": "^4.2.0",
+    "hexo": "^4.2.1",
     "hexo-abbrlink": "^2.0.5",
     "hexo-asset-image": "^1.0.0",
     "hexo-deployer-git": "^2.1.0",
