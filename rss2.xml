@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>笑拾花浸酒</title>
+    <link>https://cgy233.github.io/</link>
+    
+    <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
+    
+    <description>广东科学技术职业学院 | 人工智能技术服务 | 深度学习</description>
+    <pubDate>Fri, 08 Jul 2022 09:03:41 GMT</pubDate>
+    <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Hexo+Github配置个人博客问题总结</title>
+      <link>https://cgy233.github.io/zh-CN/2db31772.html</link>
+      <guid>https://cgy233.github.io/zh-CN/2db31772.html</guid>
+      <pubDate>Fri, 08 Jul 2022 09:03:41 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;h1 id=&quot;hexogithub-配置个人博客windows10&quot;&gt;Hexo+Github
+配置个人博客(Windows10)&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;来源(&lt;a
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://cgy233.github.io/zh-CN/2db31772.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>ESP32</title>
+      <link>https://cgy233.github.io/undefined/undefined.html</link>
+      <guid>https://cgy233.github.io/undefined/undefined.html</guid>
+      <pubDate>Fri, 08 Jul 2022 08:18:46 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;script&gt;
+        document.querySelectorAll(&#39;.github-emoji&#39;)
+          .forEach(el =&gt; {
+            if (!el.dataset.src) { return; }
+       
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://cgy233.github.io/undefined/undefined.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>ESP32_CAM使用RTSP推流图像到本地服务器，附Arduino IDE+VsCode 环境搭建</title>
+      <link>https://cgy233.github.io/zh-CN/undefined.html</link>
+      <guid>https://cgy233.github.io/zh-CN/undefined.html</guid>
+      <pubDate>Sat, 04 Jun 2022 08:32:17 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;h1 id=&quot;esp32_cam使用rtsp推流图像到本地服务器附arduino-idevscode-环境搭建&quot;&gt;ESP32_CAM使用RTSP推流图像到本地服务器，附Arduino
+IDE+VsCode 环境搭建&lt;/h1&gt;
+&lt;h2
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://cgy233.github.io/zh-CN/undefined.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>网关开发注意事项</title>
+      <link>https://cgy233.github.io/zh-CN/undefined.html</link>
+      <guid>https://cgy233.github.io/zh-CN/undefined.html</guid>
+      <pubDate>Thu, 03 Mar 2022 07:18:27 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;h1 id=&quot;网关开发注意事项&quot;&gt;网关开发注意事项&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;经过和深圳老伍合作之后，将踩过的坑记录下来，为后续我们自主开发网关少走弯路。&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;网关与平台通讯&quot;&gt;1 网关与平台通讯&lt;/h2&gt;
+&lt;h3
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://cgy233.github.io/zh-CN/undefined.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Windows一键修改IP、DNS等网络配置</title>
+      <link>https://cgy233.github.io/zh-CN/undefined.html</link>
+      <guid>https://cgy233.github.io/zh-CN/undefined.html</guid>
+      <pubDate>Tue, 25 Jan 2022 09:27:50 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;h1 id=&quot;前言&quot;&gt;前言&lt;/h1&gt;
+&lt;p&gt;寒假在家，我姐的电脑闲置了，就拿个U盘在上面装了个 &lt;a
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://cgy233.github.io/zh-CN/undefined.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>rv1126编译并部署QT项目</title>
+      <link>https://cgy233.github.io/zh-CN/undefined.html</link>
+      <guid>https://cgy233.github.io/zh-CN/undefined.html</guid>
+      <pubDate>Mon, 24 Jan 2022 16:18:17 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;h1 id=&quot;前言&quot;&gt;前言&lt;/h1&gt;
+&lt;p&gt;寒假有个在Rockchip
+RV1126上使用QT开发图形可视化的需求，接到板子之后一边学习QT一边尝试在开发板上部署
+QT 应用，暑假的时候已经编译过
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://cgy233.github.io/zh-CN/undefined.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>图像分类任务数据增广</title>
+      <link>https://cgy233.github.io/zh-CN/9caf029e.html</link>
+      <guid>https://cgy233.github.io/zh-CN/9caf029e.html</guid>
+      <pubDate>Thu, 30 Dec 2021 05:23:28 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;h1
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://cgy233.github.io/zh-CN/9caf029e.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>基于ESP32的智能蓝牙网关</title>
+      <link>https://cgy233.github.io/zh-CN/1a5c844c.html</link>
+      <guid>https://cgy233.github.io/zh-CN/1a5c844c.html</guid>
+      <pubDate>Thu, 30 Dec 2021 04:49:11 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;h1 id=&quot;xiaowei-ble-gateway-1.0.0&quot;&gt;XiaoWei Ble Gateway
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://cgy233.github.io/zh-CN/1a5c844c.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>腾讯物联网开发平台</title>
+      <link>https://cgy233.github.io/zh-CN/24f82dcb.html</link>
+      <guid>https://cgy233.github.io/zh-CN/24f82dcb.html</guid>
+      <pubDate>Thu, 30 Dec 2021 04:49:11 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;h1 id=&quot;物联网开发平台-sdk&quot;&gt;物联网开发平台 SDK&lt;/h1&gt;
+&lt;p&gt;物联网开发平台 SDK 是基于&lt;a
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://cgy233.github.io/zh-CN/24f82dcb.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>hexo入门</title>
+      <link>https://cgy233.github.io/en/3001defc.html</link>
+      <guid>https://cgy233.github.io/en/3001defc.html</guid>
+      <pubDate>Sat, 28 Dec 2019 11:02:16 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very
+first post. Check &lt;a
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://cgy233.github.io/en/3001defc.html#disqus_thread</comments>
+    </item>
+    
+  </channel>
+</rss>

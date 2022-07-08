@@ -1,0 +1,1653 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="rv1126编译并部署QT项目, MXNet Pytorch TensorFlow 陈广意 计算机视觉 深度学习">
+    <meta name="description" content="前言
+寒假有个在Rockchip
+RV1126上使用QT开发图形可视化的需求，接到板子之后一边学习QT一边尝试在开发板上部署
+QT 应用，暑假的时候已经编译过 SDK
+（因为这个埋了个大坑），最后发现，如果编译正确的SDK没有问题的话，问题">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>rv1126编译并部署QT项目 | 笑拾花浸酒</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/css/my.css">
+    
+    <script src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/jquery/jquery.min.js"></script>
+    
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/rss2.xml" title="笑拾花浸酒" type="application/rss+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">笑拾花浸酒</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/tags">
+          
+          <i class="fas fa-tags" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Tags</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories">
+          
+          <i class="fas fa-bookmark" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Categories</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/lab" class="waves-effect waves-light">
+      
+      <i class="fas fa-eye" style="zoom: 0.6;"></i>
+      
+      <span>视界</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/medias" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/medias/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/medias/schedule">
+          
+          <i class="fas fa-th-large" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Schedule</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">笑拾花浸酒</div>
+        <div class="logo-desc">
+            
+            广东科学技术职业学院 | 人工智能技术服务 | 深度学习
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-archive"></i>
+			
+			归档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>   
+				
+                  <a href="/tags " style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-tags" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Tags</span>
+                  </a>
+                </li>
+              
+                <li>   
+				
+                  <a href="/categories " style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-bookmark" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Categories</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/lab" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-eye"></i>
+			
+			视界
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>   
+				
+                  <a href="/medias/books " style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Books</span>
+                  </a>
+                </li>
+              
+                <li>   
+				
+                  <a href="/medias/schedule " style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-th-large" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Schedule</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/cgy233/cgy233.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/cgy233/cgy233.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/medias/featureimages/3.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">rv1126编译并部署QT项目</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%89%A9%E8%81%94%E7%BD%91/">
+                                <span class="chip bg-color">物联网</span>
+                            </a>
+                        
+                            <a href="/tags/rv1109-rv1126/">
+                                <span class="chip bg-color">rv1109/rv1126</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/rv1109-rv1126/" class="post-category">
+                                rv1109/rv1126
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-01-25
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2022-07-08
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    5.8k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    30 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="前言">前言</h1>
+<p>寒假有个在Rockchip
+RV1126上使用QT开发图形可视化的需求，接到板子之后一边学习QT一边尝试在开发板上部署
+QT 应用，暑假的时候已经编译过 SDK
+（因为这个埋了个大坑），最后发现，如果编译正确的SDK没有问题的话，问题也确实解决一半了。
+<strong>实现的方法有两种：1、直接在 Builroot
+下编译QT应用、2、使用交叉编译工具链编译QT</strong>
+实践证明两种方法都是可行的，如果只是<strong>单纯部署QT应用</strong>的话，建议用1，<strong>流程简单</strong>，如果要做<strong>QT应用开发</strong>的话，个人建议用2，流程虽然复杂，但是<strong>方便后面开发（折腾）</strong>，各位看官视己情况选择，下面正式开始。<br>
+# 一、Windows 下QT环境搭建 如果你的电脑还没有安装QT
+Creator的话，请参考：<a href="https://blog.csdn.net/airt_xiang/article/details/83060225" target="_blank" rel="noopener">Windows10下QT
+creator 安装教程</a> 推荐一个QT学习课程：<a href="https://www.bilibili.com/video/BV1AX4y1w7Nt?share_source=copy_web" target="_blank" rel="noopener">《Qt
+5.9 C++开发指南》2021完整版</a></p>
+<p><strong>QT项目文件结构：</strong></p>
+<figure>
+<img src="https://img-blog.csdnimg.cn/699b7ad8118540dcb0091cda9ea7ecea.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Iqx6Zuq6ZqP6aOO5LiN5Y6M55yL,size_7,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述">
+<figcaption aria-hidden="true">在这里插入图片描述</figcaption>
+</figure>
+<h1 id="二在-builroot-下编译qt应用">二、在 Builroot 下编译QT应用</h1>
+<p>参考官方文档：docs/Linux/ApplicationNote/Rockchip_Developer_Guide_Linux_Qt_CN.pdf<br>
+我的SDK下载地址：<a href="https://www.t-firefly.com/doc/download/101.html" target="_blank" rel="noopener">Firefly
+资料下载</a></p>
+<p>没有文档可以点击<a href="https://download.csdn.net/download/cgy233/76966415" target="_blank" rel="noopener">这里下载</a>给我加点积分（狗头）；
+开玩笑的啦，其实我最讨厌下载东西还要积分啥的（苦笑）<a href="https://pan.baidu.com/s/10QXjgB0IfYqGiOgorvkt_w" target="_blank" rel="noopener">百度云链接</a>
+提取码：j6xo</p>
+<p>我的SDK编译环境是搭建在 WSL <a href="https://docs.microsoft.com/zh-cn/windows/wsl/install" target="_blank" rel="noopener">（安装教程）</a>下的（首次编译耗时...保守点两个星期，还涉及后面的交叉编译），这个环境搭建教程后续可能会出（大概是我换电脑的时候）：）<br>
+&gt;注意！！！一定要编译对应你们开发板的SDK，完整地编译，不然后面的后面甚至出现不报错但是没有文件生成的错误！我拿到过两个都是rv1109/rv1126的SDK的，但是里面的文件会有所不同，细节导致成败！</p>
+<h2 id="buildroot下构建qt工程">1.Buildroot下构建QT工程</h2>
+<p>在 Buildroot 中添加Qt工程 ，下面介绍添加进Buildroot的方法。 在
+SDK/buildroot/package/rockchip/ 目录下，新建你的工程文件夹（QT
+Creator创建的项目名称，我的项目名称是TextEditor，下文提到的项目名称都是指这个），在文件夹中添加两个文件，
+Config.in 和 项目 文件名.mk 。</p>
+<p>Config.in文件内容如下：</p>
+<pre class="shell"><code>config BR2_PACKAGE_TEXTEDITOR
+    bool "TextEditor"
+    help
+        cgy qt demo</code></pre>
+<p>项目名称.mk的内容如下：</p>
+<pre class="shell"><code>################################################################################
+#
+# TextEditor
+#
+################################################################################
+
+TEXTEDITOR_VERSION = 1.0
+TEXTEDITOR_SITE = $(TOPDIR)/../app/TextEditor
+TEXTEDITOR_SITE_METHOD = local
+
+TEXTEDITOR_LICENSE = Apache V2.0
+TEXTEDITOR_LICENSE_FILES = NOTICE
+define TEXTEDITOR_CONFIGURE_CMDS
+cd &lt;span class="katex"&gt;&lt;span class="katex-mathml"&gt;&lt;math xmlns="http://www.w3.org/1998/Math/MathML"&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mo stretchy="false"&gt;(&lt;/mo&gt;&lt;mi mathvariant="normal"&gt;@&lt;/mi&gt;&lt;mi&gt;D&lt;/mi&gt;&lt;mo stretchy="false"&gt;)&lt;/mo&gt;&lt;mo separator="true"&gt;;&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding="application/x-tex"&gt;(@D); &lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class="katex-html" aria-hidden="true"&gt;&lt;span class="base"&gt;&lt;span class="strut" style="height:1em;vertical-align:-0.25em;"&gt;&lt;/span&gt;&lt;span class="mopen"&gt;(&lt;/span&gt;&lt;span class="mord"&gt;@&lt;/span&gt;&lt;span class="mord mathdefault" style="margin-right:0.02778em;"&gt;D&lt;/span&gt;&lt;span class="mclose"&gt;)&lt;/span&gt;&lt;span class="mpunct"&gt;;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;(TARGET_MAKE_ENV) $(HOST_DIR)/bin/qmake
+endef
+define TEXTEDITOR_BUILD_CMDS
+&lt;span class="katex"&gt;&lt;span class="katex-mathml"&gt;&lt;math xmlns="http://www.w3.org/1998/Math/MathML"&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mo stretchy="false"&gt;(&lt;/mo&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mi&gt;R&lt;/mi&gt;&lt;mi&gt;G&lt;/mi&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;msub&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;mi&gt;M&lt;/mi&gt;&lt;/msub&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mi&gt;K&lt;/mi&gt;&lt;msub&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;/msub&gt;&lt;mi&gt;N&lt;/mi&gt;&lt;mi&gt;V&lt;/mi&gt;&lt;mo stretchy="false"&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding="application/x-tex"&gt;(TARGET_MAKE_ENV) &lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class="katex-html" aria-hidden="true"&gt;&lt;span class="base"&gt;&lt;span class="strut" style="height:1em;vertical-align:-0.25em;"&gt;&lt;/span&gt;&lt;span class="mopen"&gt;(&lt;/span&gt;&lt;span class="mord mathdefault" style="margin-right:0.13889em;"&gt;T&lt;/span&gt;&lt;span class="mord mathdefault"&gt;A&lt;/span&gt;&lt;span class="mord mathdefault" style="margin-right:0.00773em;"&gt;R&lt;/span&gt;&lt;span class="mord mathdefault"&gt;G&lt;/span&gt;&lt;span class="mord mathdefault" style="margin-right:0.05764em;"&gt;E&lt;/span&gt;&lt;span class="mord"&gt;&lt;span class="mord mathdefault" style="margin-right:0.13889em;"&gt;T&lt;/span&gt;&lt;span class="msupsub"&gt;&lt;span class="vlist-t vlist-t2"&gt;&lt;span class="vlist-r"&gt;&lt;span class="vlist" style="height:0.32833099999999993em;"&gt;&lt;span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"&gt;&lt;span class="pstrut" style="height:2.7em;"&gt;&lt;/span&gt;&lt;span class="sizing reset-size6 size3 mtight"&gt;&lt;span class="mord mathdefault mtight" style="margin-right:0.10903em;"&gt;M&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="vlist-s"&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class="vlist-r"&gt;&lt;span class="vlist" style="height:0.15em;"&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="mord mathdefault"&gt;A&lt;/span&gt;&lt;span class="mord mathdefault" style="margin-right:0.07153em;"&gt;K&lt;/span&gt;&lt;span class="mord"&gt;&lt;span class="mord mathdefault" style="margin-right:0.05764em;"&gt;E&lt;/span&gt;&lt;span class="msupsub"&gt;&lt;span class="vlist-t vlist-t2"&gt;&lt;span class="vlist-r"&gt;&lt;span class="vlist" style="height:0.32833099999999993em;"&gt;&lt;span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"&gt;&lt;span class="pstrut" style="height:2.7em;"&gt;&lt;/span&gt;&lt;span class="sizing reset-size6 size3 mtight"&gt;&lt;span class="mord mathdefault mtight" style="margin-right:0.05764em;"&gt;E&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="vlist-s"&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class="vlist-r"&gt;&lt;span class="vlist" style="height:0.15em;"&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="mord mathdefault" style="margin-right:0.10903em;"&gt;N&lt;/span&gt;&lt;span class="mord mathdefault" style="margin-right:0.22222em;"&gt;V&lt;/span&gt;&lt;span class="mclose"&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;(MAKE) -C $(@D) 
+endef
+
+define TEXTEDITOR_INSTALL_TARGET_CMDS
+&lt;span class="katex"&gt;&lt;span class="katex-mathml"&gt;&lt;math xmlns="http://www.w3.org/1998/Math/MathML"&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mo stretchy="false"&gt;(&lt;/mo&gt;&lt;mi&gt;I&lt;/mi&gt;&lt;mi&gt;N&lt;/mi&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mi&gt;L&lt;/mi&gt;&lt;mi&gt;L&lt;/mi&gt;&lt;mo stretchy="false"&gt;)&lt;/mo&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mi&gt;D&lt;/mi&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mn&gt;0755&lt;/mn&gt;&lt;/mrow&gt;&lt;annotation encoding="application/x-tex"&gt;(INSTALL) -D -m 0755 &lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class="katex-html" aria-hidden="true"&gt;&lt;span class="base"&gt;&lt;span class="strut" style="height:1em;vertical-align:-0.25em;"&gt;&lt;/span&gt;&lt;span class="mopen"&gt;(&lt;/span&gt;&lt;span class="mord mathdefault" style="margin-right:0.07847em;"&gt;I&lt;/span&gt;&lt;span class="mord mathdefault" style="margin-right:0.10903em;"&gt;N&lt;/span&gt;&lt;span class="mord mathdefault" style="margin-right:0.05764em;"&gt;S&lt;/span&gt;&lt;span class="mord mathdefault" style="margin-right:0.13889em;"&gt;T&lt;/span&gt;&lt;span class="mord mathdefault"&gt;A&lt;/span&gt;&lt;span class="mord mathdefault"&gt;L&lt;/span&gt;&lt;span class="mord mathdefault"&gt;L&lt;/span&gt;&lt;span class="mclose"&gt;)&lt;/span&gt;&lt;span class="mspace" style="margin-right:0.2222222222222222em;"&gt;&lt;/span&gt;&lt;span class="mbin"&gt;−&lt;/span&gt;&lt;span class="mspace" style="margin-right:0.2222222222222222em;"&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="base"&gt;&lt;span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"&gt;&lt;/span&gt;&lt;span class="mord mathdefault" style="margin-right:0.02778em;"&gt;D&lt;/span&gt;&lt;span class="mspace" style="margin-right:0.2222222222222222em;"&gt;&lt;/span&gt;&lt;span class="mbin"&gt;−&lt;/span&gt;&lt;span class="mspace" style="margin-right:0.2222222222222222em;"&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="base"&gt;&lt;span class="strut" style="height:0.64444em;vertical-align:0em;"&gt;&lt;/span&gt;&lt;span class="mord mathdefault"&gt;m&lt;/span&gt;&lt;span class="mord"&gt;0&lt;/span&gt;&lt;span class="mord"&gt;7&lt;/span&gt;&lt;span class="mord"&gt;5&lt;/span&gt;&lt;span class="mord"&gt;5&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;(@D)/TextEditor $(TARGET_DIR)/usr/bin/TextEditor
+endef
+&lt;span class="katex"&gt;&lt;span class="katex-mathml"&gt;&lt;math xmlns="http://www.w3.org/1998/Math/MathML"&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mo stretchy="false"&gt;(&lt;/mo&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;v&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding="application/x-tex"&gt;(eval &lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class="katex-html" aria-hidden="true"&gt;&lt;span class="base"&gt;&lt;span class="strut" style="height:1em;vertical-align:-0.25em;"&gt;&lt;/span&gt;&lt;span class="mopen"&gt;(&lt;/span&gt;&lt;span class="mord mathdefault"&gt;e&lt;/span&gt;&lt;span class="mord mathdefault" style="margin-right:0.03588em;"&gt;v&lt;/span&gt;&lt;span class="mord mathdefault"&gt;a&lt;/span&gt;&lt;span class="mord mathdefault" style="margin-right:0.01968em;"&gt;l&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;(generic-package))</code></pre>
+<h2 id="移植源码">2.移植源码</h2>
+<p>在添加Buildroot后，你需要把你的工程资源文件夹添加到SDK中去编译，下面介绍添加源码的方法。
+在SDK/app/目录下建立你的项目文件夹，在建立的项目文件夹中新建 项目名.pro
+文件，内容如下：</p>
+<pre class="shell"><code>QT       += core gui
+
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
+CONFIG += c++11
+
+# The following define makes your compiler emit warnings if you use
+# any Qt feature that has been marked deprecated (the exact warnings
+# depend on your compiler). Please consult the documentation of the
+# deprecated API in order to know how to port your code away from it.
+DEFINES += QT_DEPRECATED_WARNINGS
+
+# You can also make your code fail to compile if it uses deprecated APIs.
+# In order to do so, uncomment the following line.
+# You can also select to disable deprecated APIs only up to a certain version of Qt.
+#DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
+
+SOURCES += \
+    main.cpp \
+    mainwindow.cpp
+
+HEADERS += \
+    mainwindow.h
+
+FORMS += \
+    mainwindow.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/&lt;span class="katex-display"&gt;&lt;span class="katex"&gt;&lt;span class="katex-mathml"&gt;&lt;math xmlns="http://www.w3.org/1998/Math/MathML"&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mrow&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mi&gt;R&lt;/mi&gt;&lt;mi&gt;G&lt;/mi&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;/mrow&gt;&lt;mi mathvariant="normal"&gt;/&lt;/mi&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mo&gt;:&lt;/mo&gt;&lt;mi&gt;u&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;:&lt;/mo&gt;&lt;mo stretchy="false"&gt;!&lt;/mo&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mo&gt;:&lt;/mo&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mi&gt;g&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi mathvariant="normal"&gt;.&lt;/mi&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi mathvariant="normal"&gt;/&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi mathvariant="normal"&gt;/&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding="application/x-tex"&gt;{TARGET}/bin
+else: unix:!android: target.path = /opt/&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class="katex-html" aria-hidden="true"&gt;&lt;span class="base"&gt;&lt;span class="strut" style="height:1em;vertical-align:-0.25em;"&gt;&lt;/span&gt;&lt;span class="mord"&gt;&lt;span class="mord mathdefault" style="margin-right:0.13889em;"&gt;T&lt;/span&gt;&lt;span class="mord mathdefault"&gt;A&lt;/span&gt;&lt;span class="mord mathdefault" style="margin-right:0.00773em;"&gt;R&lt;/span&gt;&lt;span class="mord mathdefault"&gt;G&lt;/span&gt;&lt;span class="mord mathdefault" style="margin-right:0.05764em;"&gt;E&lt;/span&gt;&lt;span class="mord mathdefault" style="margin-right:0.13889em;"&gt;T&lt;/span&gt;&lt;/span&gt;&lt;span class="mord"&gt;/&lt;/span&gt;&lt;span class="mord mathdefault"&gt;b&lt;/span&gt;&lt;span class="mord mathdefault"&gt;i&lt;/span&gt;&lt;span class="mord mathdefault"&gt;n&lt;/span&gt;&lt;span class="mord mathdefault"&gt;e&lt;/span&gt;&lt;span class="mord mathdefault" style="margin-right:0.01968em;"&gt;l&lt;/span&gt;&lt;span class="mord mathdefault"&gt;s&lt;/span&gt;&lt;span class="mord mathdefault"&gt;e&lt;/span&gt;&lt;span class="mspace" style="margin-right:0.2777777777777778em;"&gt;&lt;/span&gt;&lt;span class="mrel"&gt;:&lt;/span&gt;&lt;span class="mspace" style="margin-right:0.2777777777777778em;"&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="base"&gt;&lt;span class="strut" style="height:0.65952em;vertical-align:0em;"&gt;&lt;/span&gt;&lt;span class="mord mathdefault"&gt;u&lt;/span&gt;&lt;span class="mord mathdefault"&gt;n&lt;/span&gt;&lt;span class="mord mathdefault"&gt;i&lt;/span&gt;&lt;span class="mord mathdefault"&gt;x&lt;/span&gt;&lt;span class="mspace" style="margin-right:0.2777777777777778em;"&gt;&lt;/span&gt;&lt;span class="mrel"&gt;:&lt;/span&gt;&lt;/span&gt;&lt;span class="base"&gt;&lt;span class="strut" style="height:0.69444em;vertical-align:0em;"&gt;&lt;/span&gt;&lt;span class="mclose"&gt;!&lt;/span&gt;&lt;span class="mord mathdefault"&gt;a&lt;/span&gt;&lt;span class="mord mathdefault"&gt;n&lt;/span&gt;&lt;span class="mord mathdefault"&gt;d&lt;/span&gt;&lt;span class="mord mathdefault" style="margin-right:0.02778em;"&gt;r&lt;/span&gt;&lt;span class="mord mathdefault"&gt;o&lt;/span&gt;&lt;span class="mord mathdefault"&gt;i&lt;/span&gt;&lt;span class="mord mathdefault"&gt;d&lt;/span&gt;&lt;span class="mspace" style="margin-right:0.2777777777777778em;"&gt;&lt;/span&gt;&lt;span class="mrel"&gt;:&lt;/span&gt;&lt;span class="mspace" style="margin-right:0.2777777777777778em;"&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="base"&gt;&lt;span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"&gt;&lt;/span&gt;&lt;span class="mord mathdefault"&gt;t&lt;/span&gt;&lt;span class="mord mathdefault"&gt;a&lt;/span&gt;&lt;span class="mord mathdefault" style="margin-right:0.02778em;"&gt;r&lt;/span&gt;&lt;span class="mord mathdefault" style="margin-right:0.03588em;"&gt;g&lt;/span&gt;&lt;span class="mord mathdefault"&gt;e&lt;/span&gt;&lt;span class="mord mathdefault"&gt;t&lt;/span&gt;&lt;span class="mord"&gt;.&lt;/span&gt;&lt;span class="mord mathdefault"&gt;p&lt;/span&gt;&lt;span class="mord mathdefault"&gt;a&lt;/span&gt;&lt;span class="mord mathdefault"&gt;t&lt;/span&gt;&lt;span class="mord mathdefault"&gt;h&lt;/span&gt;&lt;span class="mspace" style="margin-right:0.2777777777777778em;"&gt;&lt;/span&gt;&lt;span class="mrel"&gt;=&lt;/span&gt;&lt;span class="mspace" style="margin-right:0.2777777777777778em;"&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="base"&gt;&lt;span class="strut" style="height:1em;vertical-align:-0.25em;"&gt;&lt;/span&gt;&lt;span class="mord"&gt;/&lt;/span&gt;&lt;span class="mord mathdefault"&gt;o&lt;/span&gt;&lt;span class="mord mathdefault"&gt;p&lt;/span&gt;&lt;span class="mord mathdefault"&gt;t&lt;/span&gt;&lt;span class="mord"&gt;/&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;{TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    res.qrc
+
+RC_ICONS += AppIcon.ico
+</code></pre>
+<p><strong>然后将刚才介绍的QT资源文件（.h、.cpp、.ui、.qrc）都复制到这个目录下面，别遗漏了图片或者视频或其他资源文件夹</strong>
+## 3.编译工程</p>
+<pre class="shell"><code>make TextEditor-rebuild</code></pre>
+<p>可能出现错误：</p>
+<pre class="shell"><code>rockchip rv1126 rv1109 facial gate/host/bin/qmake: No such file or directory</code></pre>
+<blockquote>
+<p>这里我编译的时候出现了找不到qmake的错误 ，将上文中的 Config.in
+文件中$(HOST_DIR)/bin/qmake更改成SDK下的buildroot/output/firefly_rv1126_rv1109/host/bin/qamke，问题解决；
+如果找不到这个文件，你可以选择：1.
+去找到正确的SDK重新编译；2.跳到第三小节使用交叉工具链编译QT。</p>
+</blockquote>
+<p><strong>没有报错编译通过的话，会在SDK/buildroot/output/rockchip_rv1126_rv1109_facial_gate/target/usr/bin/目录下生成可执行文件（文件名是你项目的名称）。</strong><br>
+# 三、使用交叉编译工具链编译QT 参考：<a href="https://blog.csdn.net/Michael_Jam/article/details/118073712" target="_blank" rel="noopener">Linux
+Qt5.9.X版本下的交叉编译(openssl + sqlite)</a></p>
+<blockquote>
+<p>如果在不想折腾这个的话，可以直接跳到最后一步</p>
+</blockquote>
+<h2 id="准备工作">1.准备工作</h2>
+<ul>
+<li><p>1、GCC编译官网下载： <a href="https://releases.linaro.org/components/toolchain/binaries/" target="_blank" rel="noopener">Linaro
+Releases</a>
+GCC编译包：gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf.tar.xz
+<strong>备注</strong>：这个编译包看个人的开发环境而定，我这里以该编译工具包为例
+&gt;
+这一步，其实在SDK的prebuilts/gcc/linux-x86/arm目录下有编译工具包，不过需要注意的是用linaro不是arm，很不幸我弄错了，希望你们别踩坑。
+&gt; <img src="https://img-blog.csdnimg.cn/5de2a85596f8406ca52a943b674b7787.png" alt="编译工具包"></p></li>
+<li><p>2.OpenSSL官网下载： <a href="https://www.openssl.org/source/old/1.0.0/" target="_blank" rel="noopener"><strong>官方下载地址</strong></a><strong>，OpenSSL以下面为例：</strong>
+<img src="https://img-blog.csdnimg.cn/9f47c46a9d4c4be6891951b90811fe0e.png" alt="在这里插入图片描述"></p></li>
+<li><p>3.SQLite官网下载 <a href="https://www.sqlite.org/download.html" target="_blank" rel="noopener"><strong>官方下载地址</strong></a>，这里选择Source
+Code下的sqlite-autoconf-xxxxxxx.tar.gz(版本随意)</p></li>
+<li><p>4.QT5官网下载 <a href="https://download.qt.io/archive/qt/5.9/5.9.4/single/" target="_blank" rel="noopener"><strong>官方下载地址</strong></a>，以下图为例：
+<img src="https://img-blog.csdnimg.cn/f6e2823f5034406cb7459044fa3c3a5f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Iqx6Zuq6ZqP6aOO5LiN5Y6M55yL,size_20,color_FFFFFF,t_70,g_se,x_16" alt="QT5"> &gt; <strong>Tip</strong>:
+在WSL下，可以在官网右键目标压缩包复制下载地址，可以直接下载到本地，例如QT：
+&gt;
+<code>bash &gt; wget https://download.qt.io/archive/qt/5.9/5.9.4/single/qt-everywhere-opensource-src-5.9.4.tar.xz &gt;</code>
+将下载的三个安装包分别解压：</p></li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> <span class="at">-zxvf</span> openssl-1.0.0.tar.gz</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> <span class="at">-zxvf</span> sqlite-autoconf-3370200.tar.gz</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> <span class="at">-xvf</span> qt-everywhere-opensource-src-5.9.4.tar.xz</span></code></pre></div>
+<blockquote>
+<p><strong>Tip：</strong>
+如果想要解压到指定目录，可以在命令行后面加上参数 -C 目标文件夹</p>
+</blockquote>
+<p>准备工作 Complete，下面开始交叉编译。 ## 2.使用编译工具包进行交叉编译
+### 1.编译OpenSSL
+在解压后的OpenSSL目录下执行以下命令，opennssl_build_path为安装路径，自行修改：</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./Configure</span> linux-armv4 no-asm shared <span class="at">--prefix</span><span class="op">=</span>opennssl_build_path</span></code></pre></div>
+<p>修改OpenSSL目录下的Makefile文件，62行：
+修改<strong>CC、AR、RANLIB、NM、MAKEDEPPROG</strong>参数，将其修改成上文中编译工具包的路径，如下图所示是我的路径，<strong>MAKEDEPPROG的路劲和CC的一样</strong>
+： <img src="https://img-blog.csdnimg.cn/7da6c72af74a42aa85118ea4653b31ae.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Iqx6Zuq6ZqP6aOO5LiN5Y6M55yL,size_20,color_FFFFFF,t_70,g_se,x_16" alt="编译工具包"> OpenSSL目录下Makefile文件62行开始： <img src="https://img-blog.csdnimg.cn/6fcfe76ac12647b0bdc3ac4184320607.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Iqx6Zuq6ZqP6aOO5LiN5Y6M55yL,size_20,color_FFFFFF,t_70,g_se,x_16" alt="修改Makefile文件"> &gt;
+注意！！！这些路径一定要设置正确！不然编译QT步骤时，运行build.sh脚本时会出现错误。</p>
+<p><strong>最后执行命令进行编译：</strong></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> <span class="at">-j4</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> install</span></code></pre></div>
+<p>可能出现的错误： <img src="https://img-blog.csdnimg.cn/47e27cc91b7b44cf85aaeada9fe126d3.png" alt="OpenSSL编译错误">
+解决方法，将这个/usr/bin/pod2man删掉，再编译：</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> /usr/bin/pod2man</span></code></pre></div>
+<p>编译安装好，进去你所安装的目录下，执行以下命令检查是否交叉编译成功：</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">file</span> ./lib/libcrypto.so.1.0.0</span></code></pre></div>
+<p>成功会打印出以下信息：</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./lib/libcrypto.so.1.0.0:</span> ELF 64-bit LSB shared object, x86-64, version 1 <span class="er">(</span><span class="ex">SYSV</span><span class="kw">)</span><span class="ex">,</span> dynamically linked, BuildID[sha1]=4d397b8e162dd9553787aa0cf733e82f27d2db6a, not stripped</span></code></pre></div>
+<blockquote>
+<p><strong>Tip：</strong>
+建议编译安装路径设置成绝对路径，相对路径可能会出现路径错误的问题
+：）</p>
+</blockquote>
+<h3 id="编译sqlite">2.编译SQLite</h3>
+<p>同上，在解压后的SQLite目录下执行以下命令，sqlite_build_path为安装路径，gcc_path为GCC编译器路径，自行修改：</p>
+<pre class="shell"><code>
+./configure --prefix=sqlite_build_path --host=arm-linux-gnueabihf CC=gcc_path/arm-linux-gnueabihf-gcc</code></pre>
+<p>然后SQLite目录下执行以下命令：</p>
+<pre class="shell"><code>make -j4
+make install</code></pre>
+<p>成功后显示：</p>
+<pre class="shell"><code>----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/ethan/sqlite_build/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+ /usr/bin/mkdir -p '/home/ethan/sqlite_build/bin'
+  /bin/bash ./libtool   --mode=install /usr/bin/install -c sqlite3 '/home/ethan/sqlite_build/bin'
+libtool: install: /usr/bin/install -c sqlite3 /home/ethan/sqlite_build/bin/sqlite3
+ /usr/bin/mkdir -p '/home/ethan/sqlite_build/include'
+ /usr/bin/install -c -m 644 sqlite3.h sqlite3ext.h '/home/ethan/sqlite_build/include'
+ /usr/bin/mkdir -p '/home/ethan/sqlite_build/share/man/man1'
+ /usr/bin/install -c -m 644 sqlite3.1 '/home/ethan/sqlite_build/share/man/man1'
+ /usr/bin/mkdir -p '/home/ethan/sqlite_build/lib/pkgconfig'
+ /usr/bin/install -c -m 644 sqlite3.pc '/home/ethan/sqlite_build/lib/pkgconfig'
+make[1]: Leaving directory '/home/ethan/sqlite-autoconf-3370200'</code></pre>
+<h3 id="编译qt">3.编译QT</h3>
+<p><strong>进入解压QT的目录下，新建build.sh文件，opennssl_build_path为OpenSSL安装路径，sqlite_build_path为SQLite安装路径，qt_build_path为将要安装的QT目录，自行修改内容如下：</strong></p>
+<pre class="shell"><code>#!/bin/sh
+OPENSSL_LIBS='-Lopennssl_build_path/lib -lssl -lcrypto'
+./configure -prefix qt_build_path \
+-opensource \
+-debug \
+-confirm-license \
+-xplatform linux-arm-gnueabi-g++ \
+-pch \
+-linuxfb \
+-no-opengl \
+-shared \
+-no-iconv \
+-no-xcb \
+-sqlite \
+-qt-zlib \
+-openssl-linked -I opennssl_build_path/include -L opennssl_build_path/lib \
+-recheck-all</code></pre>
+<p><strong>然后移动到解压QT目录执行以下命令：</strong></p>
+<pre class="shell"><code>cd qtbase/mkspecs/linux-arm-gnueabi-g++</code></pre>
+<p><strong>修改qmake.conf文件，内容如下，openssl_build_path为OpenSSL安装路径，sqlite_build_path为SQLite安装路径，compiler_path为编译器路径，自行修改：</strong></p>
+<pre class="shell"><code>#
+# qmake configuration for building with arm-linux-gnueabi-g++
+#
+ 
+MAKEFILE_GENERATOR      = UNIX
+CONFIG                 += incremental
+QMAKE_INCREMENTAL_STYLE = sublib
+ 
+include(../common/linux.conf)
+include(../common/gcc-base-unix.conf)
+include(../common/g++-unix.conf)
+ 
+QT_QPA_DEFAULT_PLATFORM=linuxfb
+QMAKE_INCDIR += sqlite_build_path/include openssl_build_path/include
+QMAKE_LIBDIR += sqlite_build_path/lib openssl_build_path/lib
+ 
+# modifications to g++.conf
+#根据自己的GCC编译器路径来定
+QMAKE_CC                = compiler_path/arm-linux-gnueabihf-gcc
+QMAKE_CXX               = compiler_path/arm-linux-gnueabihf-g++
+QMAKE_LINK              = compiler_path/arm-linux-gnueabihf-g++
+QMAKE_LINK_SHLIB        = compiler_path/arm-linux-gnueabihf-g++
+ 
+# modifications to linux.conf
+QMAKE_AR                = compiler_path/arm-linux-gnueabihf-ar cqs
+QMAKE_OBJCOPY           = compiler_path/arm-linux-gnueabihf-objcopy
+QMAKE_NM                = compiler_path/arm-linux-gnueabihf-nm -P
+QMAKE_STRIP             = compiler_path/arm-linux-gnueabihf-strip
+load(qt_config)</code></pre>
+<p><strong>修改完成后，回到解压QT的目录，执行以下命令：</strong></p>
+<pre class="shell"><code>chmod +x build.sh
+./builsh.sh</code></pre>
+<p><strong>可能会出现的错误：</strong></p>
+<pre class="shell"><code>ERROR: Feature 'openssl-linked' was enabled, but the pre-condition '!features.securetransport &amp;&amp; libs.openssl' failed.</code></pre>
+<p><strong>解决方法：</strong>
+<strong>出现这个错误说明你的OpenSSL没有安装成功，请回到OpenSSL安装步骤检查你的Makefile文件各个参数的路径有没有问题，不关版本的事情</strong></p>
+<p><strong>脚本运行成功后，会打印出以下信息：</strong></p>
+<pre class="shell"><code>Note: Also available for Linux: linux-clang linux-icc
+
+Note: When linking against OpenSSL, you can override the default
+library names through OPENSSL_LIBS.
+For example:
+    OPENSSL_LIBS='-L/opt/ssl/lib -lssl -lcrypto' ./configure -openssl-linked
+
+Note: No wayland-egl support detected. Cross-toolkit compatibility disabled.
+
+Qt is now configured for building. Just run 'make'.
+Once everything is built, you must run 'make install'.
+Qt will be installed into '/home/ethan/qt_build'.
+
+Prior to reconfiguration, make sure you remove any leftovers from
+the previous build.</code></pre>
+<p><strong>看到以上信息证明运行成功， 执行编译命令：</strong></p>
+<pre class="shell"><code>make -j4
+make install</code></pre>
+<p>编译安装成后，控制台会打印以下结果：</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="va">make</span><span class="op">[</span><span class="dv">2</span><span class="op">]</span><span class="ex">:</span> Leaving directory <span class="st">'/home/ethan/qt-everywhere-opensource-src-5.9.4/qttranslations/translations'</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="va">make</span><span class="op">[</span><span class="dv">1</span><span class="op">]</span><span class="ex">:</span> Leaving directory <span class="st">'/home/ethan/qt-everywhere-opensource-src-5.9.4/qttranslations'</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> qtdoc/ <span class="kw">&amp;&amp;</span> <span class="kw">(</span> <span class="bu">test</span> <span class="at">-e</span> Makefile <span class="kw">||</span> <span class="ex">/home/ethan/qt-everywhere-opensource-src-5.9.4/qtbase/bin/qmake</span> <span class="at">-o</span> Makefile /home/ethan/qt-everywhere-opensource-src-5.9.4/qtdoc/qtdoc.pro <span class="kw">)</span> <span class="kw">&amp;&amp;</span> <span class="fu">make</span> <span class="at">-f</span> Makefile install</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="va">make</span><span class="op">[</span><span class="dv">1</span><span class="op">]</span><span class="ex">:</span> Entering directory <span class="st">'/home/ethan/qt-everywhere-opensource-src-5.9.4/qtdoc'</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> doc/ <span class="kw">&amp;&amp;</span> <span class="kw">(</span> <span class="bu">test</span> <span class="at">-e</span> Makefile <span class="kw">||</span> <span class="ex">/home/ethan/qt-everywhere-opensource-src-5.9.4/qtbase/bin/qmake</span> <span class="at">-o</span> Makefile /home/ethan/qt-everywhere-opensource-src-5.9.4/qtdoc/doc/doc.pro <span class="kw">)</span> <span class="kw">&amp;&amp;</span> <span class="fu">make</span> <span class="at">-f</span> Makefile install</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="va">make</span><span class="op">[</span><span class="dv">2</span><span class="op">]</span><span class="ex">:</span> Entering directory <span class="st">'/home/ethan/qt-everywhere-opensource-src-5.9.4/qtdoc/doc'</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="va">make</span><span class="op">[</span><span class="dv">2</span><span class="op">]</span><span class="ex">:</span> Nothing to be done for <span class="st">'install'</span>.</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="va">make</span><span class="op">[</span><span class="dv">2</span><span class="op">]</span><span class="ex">:</span> Leaving directory <span class="st">'/home/ethan/qt-everywhere-opensource-src-5.9.4/qtdoc/doc'</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="va">make</span><span class="op">[</span><span class="dv">1</span><span class="op">]</span><span class="ex">:</span> Leaving directory <span class="st">'/home/ethan/qt-everywhere-opensource-src-5.9.4/qtdoc'</span></span></code></pre></div>
+<h3 id="使用qmake编译-qt-应用">4.使用qmake编译 QT 应用</h3>
+<p>参考：<a href="https://blog.csdn.net/szm1234/article/details/112535203" target="_blank" rel="noopener">WSL2环境下交叉编译QT工程，开发板成功运行（全过程详解）</a></p>
+<ul>
+<li><p>1.将你的QT creator 创建的项目文件夹直接复制到WSL下面；</p></li>
+<li><p>2.删除后缀为.pro.user文件（防止出错，我没删也没报错）；</p></li>
+<li><p>3.在项目文件夹下面执行执行命令，qt_build_path为你刚才QT安装设置的路径：
+<code>shell     qt_buid_path/qmake</code></p></li>
+<li><p>4.上一步成功后会在该目录下生成Makefile文件，执行命令编译项目：
+<code>shell     make</code>
+<strong>编译成功后会在该目录下生成可执行文件。</strong> &gt;
+<strong>Tip：</strong> 在资源管理器地址栏中输入：\$
+可直接打开WSL系统文件夹</p></li>
+</ul>
+<h1 id="四上机测试">四、上机测试</h1>
+<h2 id="将可执行文件复制到开发板上进行测试">1.将可执行文件复制到开发板上进行测试</h2>
+<p>怎么传输式各位看官觉得啥方便就用啥，小小白：<a href="https://www.runoob.com/linux/linux-comm-scp.html" target="_blank" rel="noopener">ssh使用scp传输文件</a>、<a href="https://blog.csdn.net/Jackson_Wen/article/details/51931140" target="_blank" rel="noopener">adb传输文件</a>、<a href="https://www.cnblogs.com/lidabo/p/4780866.html" target="_blank" rel="noopener">串口传输文件</a> ##
+2.配置环境变量 进入rv1126命令行，执行以下命令：</p>
+<pre class="shell"><code>export QT_QPA_FB_DRM=1
+export QT_QPA_PLATFORM=linuxfb:rotation=0</code></pre>
+<p><strong>不设置可能会出现错误：</strong></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">This</span> application failed to start because it could not find or load the Qt platform plugin <span class="st">"eglfs"</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="er">in</span> <span class="st">""</span><span class="ex">.</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Available</span> platform plugins are: linuxfb, minimal, offscreen, vnc.</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Reinstalling</span> the application may fix this problem.</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Aborted</span> <span class="er">(</span><span class="ex">core</span> dumped<span class="kw">)</span></span></code></pre></div>
+<h2 id="添加权限并执行程序">3.添加权限并执行程序</h2>
+<pre class="shell"><code>chmod +x TextEditor
+./TextEditor</code></pre>
+<p><strong>实现效果图：</strong> <strong>在 Builroot 下编译：</strong>
+<img src="https://img-blog.csdnimg.cn/d78c9b71ebc84d4ea115ef143ca3cac2.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Iqx6Zuq6ZqP6aOO5LiN5Y6M55yL,size_20,color_FFFFFF,t_70,g_se,x_16" alt="builroot"> <strong>交叉编译工具编译QT后使用qmake编译：</strong>
+<img src="https://img-blog.csdnimg.cn/5503f4360c3e44fa9f1ecd8392f6efcf.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6Iqx6Zuq6ZqP6aOO5LiN5Y6M55yL,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Qmake"></p>
+<blockquote>
+<p>大功告成！ # 五、其他问题及解决方法 ## 编译SDK时可能出现的问题：
+1.用户身份问题</p>
+</blockquote>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">you</span> should not run configure as root <span class="er">(</span><span class="bu">set</span> FORCE_UNSAFE_CONFIGURE=1 in environment to bypass this</span></code></pre></div>
+<p>解决方法：</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">FORCE_UNSAFE_CONFIGURE</span><span class="op">=</span>1</span></code></pre></div>
+<blockquote>
+<p>参考：<a href="https://blog.csdn.net/tx422/article/details/78593860" target="_blank" rel="noopener">编译错误you
+should not run configure as root (set FORCE_UNSAFE_CONFIGURE=1 in
+environment to bypass this</a></p>
+</blockquote>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://cgy233.github.io" rel="external nofollow noreferrer">陈广意</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://cgy233.github.io/zh-CN/undefined.html">https://cgy233.github.io/zh-CN/undefined.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://cgy233.github.io" target="_blank">陈广意</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%89%A9%E8%81%94%E7%BD%91/">
+                                    <span class="chip bg-color">物联网</span>
+                                </a>
+                            
+                                <a href="/tags/rv1109-rv1126/">
+                                    <span class="chip bg-color">rv1109/rv1126</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/zh-CN/undefined.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/medias/featureimages/6.jpg" class="responsive-img" alt="Windows一键修改IP、DNS等网络配置">
+                        
+                        <span class="card-title">Windows一键修改IP、DNS等网络配置</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            前言
+寒假在家，我姐的电脑闲置了，就拿个U盘在上面装了个 OpenWRT
+作为旁路由，有些时候需要频繁切换IP等配置，觉得太麻烦了，
+网上的方法...CMD命令+桌面快捷方式，emmm...我喜欢干干净净的桌面，一个图标也没有的那种，然后就
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-01-25
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Tools/" class="post-category">
+                                    Tools
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/AutoHotkey/">
+                        <span class="chip bg-color">AutoHotkey</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/zh-CN/9caf029e.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/medias/featureimages/3.jpg" class="responsive-img" alt="图像分类任务数据增广">
+                        
+                        <span class="card-title">图像分类任务数据增广</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            图像分类任务中数据增广的两种方式
+在图像分类任务中，为了提高模型的准确度及提升其泛化能力，我们通常会对数据进行增广处理，常用的操作有裁剪、缩放、镜像，颜色空间转换等，下面介绍图像增广的两种方式，PIL.ImageEnhance和keras.
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    深度学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">深度学习</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 笑拾花浸酒<br />'
+            + '文章作者: 陈广意<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="https://cgy233.github.io" target="_blank">陈广意</a>
+            |&nbsp;Powered by&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/xinetzone/xinetzone.github.io" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">14.7k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "6";
+                    var startDate = "30";
+                    var startHour = "2";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/cgy233" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:cgy233@outlook.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1781387847" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1781387847" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/rss2.xml" class="tooltipped" target="_blank" data-tooltip="RSS2 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/js/matery.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/background/canvas-nest.js"></script>
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":200,"height":300},"mobile":{"show":true,"scale":0.5},"react":{"opacity":0.7},"log":false});</script></body>
+
+</html>

@@ -1,0 +1,1114 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="他说, MXNet Pytorch TensorFlow 陈广意 计算机视觉 深度学习">
+    <meta name="description" content="他说 | 笑拾花浸酒">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>他说 | 笑拾花浸酒</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/css/my.css">
+    
+    <script src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/jquery/jquery.min.js"></script>
+    
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/rss2.xml" title="笑拾花浸酒" type="application/rss+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">笑拾花浸酒</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/tags">
+          
+          <i class="fas fa-tags" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Tags</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories">
+          
+          <i class="fas fa-bookmark" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Categories</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/lab" class="waves-effect waves-light">
+      
+      <i class="fas fa-eye" style="zoom: 0.6;"></i>
+      
+      <span>视界</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/medias" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/medias/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/medias/schedule">
+          
+          <i class="fas fa-th-large" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Schedule</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">笑拾花浸酒</div>
+        <div class="logo-desc">
+            
+            广东科学技术职业学院 | 人工智能技术服务 | 深度学习
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-archive"></i>
+			
+			归档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>   
+				
+                  <a href="/tags " style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-tags" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Tags</span>
+                  </a>
+                </li>
+              
+                <li>   
+				
+                  <a href="/categories " style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-bookmark" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Categories</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/lab" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-eye"></i>
+			
+			视界
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>   
+				
+                  <a href="/medias/books " style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Books</span>
+                  </a>
+                </li>
+              
+                <li>   
+				
+                  <a href="/medias/schedule " style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-th-large" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Schedule</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/cgy233/cgy233.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/cgy233/cgy233.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    <div class="bg-cover pd-header about-cover">
+    <div class="container">
+    <div class="row">
+    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+        <div class="brand">
+            <div class="title center-align">
+                
+                伫倚危楼风细细
+                
+            </div>
+
+            <div class="description center-align">
+                
+                <span id="subtitle"></span>
+                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+                <script>
+                    var typed = new Typed("#subtitle", {
+                        strings: ['从来没有真正的绝境, 只有心灵的迷途','Never really desperate, only the lost of the soul'],
+                        startDelay: 300,
+                        typeSpeed: 100,
+                        loop: true,
+                        backSpeed: 50,
+                        showCursor: true
+                    });
+                </script>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    // 每天切换 banner 图.  Switch banner image every day.
+    $('.bg-cover').css('background-image', 'url(https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/medias/banner/' + new Date().getDay() + '.jpg)');
+</script>
+
+
+    </div>
+</div>
+
+<main class="content">
+    <div id="contact" class="container chip-container">
+        <div class="card">
+            <div class="card-content">
+                <div class="tag-title center-align">
+                    <i class="fas fa-eye"></i>&nbsp;&nbsp;lab
+                </div>
+                <h2 id="他说">他说</h2>
+<p>收集各种优质资源。</p>
+<h3 id="ai-资源">AI 资源</h3>
+<ul>
+<li><a href="https://github.com/apachecn/awesome-data-comp-solution" target="_blank" rel="noopener">数据科学/人工智能比赛解决方案汇总</a></li>
+</ul>
+<h3 id="项目开源">项目开源</h3>
+<ul>
+<li><a href="https://www.gnu.org/licenses/licenses.zh-cn.html" target="_blank" rel="noopener">GNU操作系统：如何选择开源许可证协议</a></li>
+</ul>
+<h3 id="github-actions">GitHub Actions</h3>
+<ul>
+<li><a href="https://github.com/sdras/awesome-actions" target="_blank" rel="noopener">Awesome
+Actions</a></li>
+</ul>
+<h3 id="git">Git</h3>
+<ul>
+<li><a href="https://git-scm.com/book/zh/v2/Git-工具-子模块" target="_blank" rel="noopener">7.11 Git
+工具 - 子模块</a></li>
+<li><a href="http://servicecomb.apache.org/cn/developers/use-gitter/" target="_blank" rel="noopener">Gitter
+使用指南</a></li>
+<li><a href="https://juejin.im/post/5c4c738ce51d4525211c129b" target="_blank" rel="noopener">Gitter -
+高颜值GitHub小程序客户端诞生记</a></li>
+<li><a href="https://gitbook.tw/" target="_blank" rel="noopener">為你自己學 Git</a></li>
+<li><a href="http://danielkummer.github.io/git-flow-cheatsheet/index.zh_CN.html" target="_blank" rel="noopener">git-flow
+备忘清单</a></li>
+<li><a href="https://git.ninghao.net/" target="_blank" rel="noopener">GitBook: Git</a></li>
+<li><a href="https://msd.misuland.com/pd/2884250171976191636" target="_blank" rel="noopener">Git工作流指南：Gitflow工作流</a></li>
+<li><a href="https://baijiahao.baidu.com/s?id=1595438303905568792" target="_blank" rel="noopener">优维独家分享
+- GitFlow分支模型下的代码全量格式化流程</a></li>
+</ul>
+<p>注意：对于 tag 命名需要遵循：<code>1.0.2</code> 这种形式，其中
+<code>1</code> 表示有重大改变，<code>0</code>
+表示有新的功能引入，<code>2</code> 表示修复 bug。</p>
+<ul>
+<li><a href="https://www.git-tower.com/learn/git/ebook/cn/command-line/introduction" target="_blank" rel="noopener">Learn
+Version Control with Git</a></li>
+</ul>
+<figure>
+<img src="/lab/%E4%BB%96%E8%AF%B4/git.png" alt="git 指令速查表">
+<figcaption aria-hidden="true">git 指令速查表</figcaption>
+</figure>
+<figure>
+<img src="/lab/%E4%BB%96%E8%AF%B4/git1.png" alt="版本控制最佳实践">
+<figcaption aria-hidden="true">版本控制最佳实践</figcaption>
+</figure>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/38457882" target="_blank" rel="noopener">怎样以及为什么要保持你的
+Git 提交记录的整洁</a></li>
+</ul>
+<h3 id="hexo">Hexo</h3>
+<ul>
+<li>字符：<a href="https://fontawesome.com/icons" target="_blank" rel="noopener">Font Awesome</a></li>
+<li><a href="http://yearito.cn/posts/hexo-advanced-settings.html" target="_blank" rel="noopener">Hexo
+搭建个人博客系列：进阶设置篇</a></li>
+<li><a href="https://hexo.io/themes/" target="_blank" rel="noopener">hexo: themes</a></li>
+<li><a href="https://draveness.me/git-comments-initialize" target="_blank" rel="noopener">自动初始化
+Gitalk 和 Gitment 评论</a></li>
+<li><a href="https://easyhexo.com/" target="_blank" rel="noopener">轻松入门 Hexo</a></li>
+<li><a href="https://blog.csdn.net/github_37360787/article/details/82982723" target="_blank" rel="noopener">ejs
+常用标签详解</a></li>
+<li><a href="https://blog.csdn.net/zhangxin09/article/details/18409119" target="_blank" rel="noopener">EJS
+模板快速入门</a></li>
+<li><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo 官方教程</a></li>
+<li><a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="noopener">Fluid：一款
+Material Design 风格的主题</a></li>
+<li><a href="https://github.com/shenliyang/hexo-theme-snippet" target="_blank" rel="noopener">Snippet
+简洁而不简单，也许是一款你寻找已久hexo主题</a></li>
+<li><a href="https://github.com/kaiiiz/hexo-theme-book" target="_blank" rel="noopener">A simple,
+elegant, book-like hexo theme with some useful features</a></li>
+<li><a href="http://www.materializecss.cn/index.html" target="_blank" rel="noopener">Materialize:
+基于Material Design的主流前端响应式框架</a></li>
+<li><a href="https://hexo.io/zh-cn/docs/tag-plugins.html" target="_blank" rel="noopener">hexo:
+标签插件（Tag Plugins）</a></li>
+<li><a href="https://www.zhihu.com/question/19580096" target="_blank" rel="noopener">你必读的 RSS
+订阅源有哪些？</a></li>
+<li><a href="https://tyloafer.github.io/posts/7790/" target="_blank" rel="noopener">Hexo中引入Mermaid流程图</a></li>
+</ul>
+<h3 id="jekyll">Jekyll</h3>
+<ul>
+<li><a href="https://www.jekyll.com.cn/docs/configuration/" target="_blank" rel="noopener">Jekyll
+中文文档</a></li>
+<li><a href="https://www.helplib.com/GitHub/article_145658" target="_blank" rel="noopener">minima,
+最小值是一个适合所有Jekyll主题的size</a></li>
+</ul>
+<h3 id="vuepress">Vuepress</h3>
+<ul>
+<li><a href="https://vuepress.vuejs.org/zh/" target="_blank" rel="noopener">Vue
+驱动的静态网站生成器</a></li>
+</ul>
+<h2 id="计算机视觉书籍与源码">计算机视觉书籍与源码</h2>
+<ul>
+<li>书籍：<a href="http://szeliski.org/Book/" target="_blank" rel="noopener">Computer Vision:
+Algorithms and Applications</a> | 代码：<a href="https://github.com/XiaoshengLiang" target="_blank" rel="noopener">XiaoshengLiang</a>/**<a href="https://github.com/XiaoshengLiang/Computer_Vision" target="_blank" rel="noopener">Computer_Vision</a>*
+| Slides：<a href="http://www.cs.washington.edu/education/courses/cse576/08sp/" target="_blank" rel="noopener">CSE
+576 (Graduate Computer Vision)</a></li>
+<li>在 <a href="https://github.com/topics/computer-vision" target="_blank" rel="noopener">Topic:
+Computer vision</a> 中存在许多优秀资源，可以自行选择。</li>
+<li>awesome 一般都是比较优秀的资源：<a href="https://github.com/jbhuang0604" target="_blank" rel="noopener">jbhuang0604</a>/<strong><a href="https://github.com/jbhuang0604/awesome-computer-vision" target="_blank" rel="noopener">awesome-computer-vision</a></strong></li>
+<li><a href="https://github.com/AustinKobayashi" target="_blank" rel="noopener">AustinKobayashi</a>/<strong><a href="https://github.com/AustinKobayashi/CPSC-340" target="_blank" rel="noopener">CPSC-340</a></strong></li>
+<li><a href="https://github.com/satyajeetkr9" target="_blank" rel="noopener">satyajeetkr9</a>/<strong><a href="https://github.com/satyajeetkr9/Obvision" target="_blank" rel="noopener">Obvision</a></strong></li>
+</ul>
+<h2 id="python资源库">Python资源库</h2>
+<h3 id="计算机视觉">计算机视觉</h3>
+<ul>
+<li><a href="http://simplecv.org/" target="_blank" rel="noopener">SimpleCV</a>—开源的计算机视觉框架，可以访问如OpenCV等高性能计算机视觉库。使用Python编写，可以在Mac、Windows以及Ubuntu上运行。</li>
+</ul>
+<h4 id="自然语言处理"><a href="https://github.com/josephmisiti/awesome-machine-learning/blob/master/README.md#natural-language-processing-5" target="_blank" rel="noopener">自然语言处理</a></h4>
+<ul>
+<li><p><a href="http://www.oschina.net/p/nltk" target="_blank" rel="noopener">NLTK</a>
+—一个领先的平台，用来编写处理人类语言数据的Python程序</p></li>
+<li><p><a href="http://www.clips.ua.ac.be/pattern" target="_blank" rel="noopener">Pattern</a>—Python可用的web挖掘模块，包括自然语言处理、机器学习等工具。</p></li>
+<li><p><a href="http://textblob.readthedocs.org/" target="_blank" rel="noopener">TextBlob</a>—为普通自然语言处理任务提供一致的API，以NLTK和Pattern为基础，并和两者都能很好兼容。</p></li>
+<li><p><a href="https://github.com/fxsjy/jieba#jieba-1" target="_blank" rel="noopener">jieba</a>—中文断词工具。</p></li>
+<li><p><a href="https://github.com/isnowfy/snownlp" target="_blank" rel="noopener">SnowNLP</a>
+—中文文本处理库。</p></li>
+<li><p><a href="https://github.com/victorlin/loso" target="_blank" rel="noopener">loso</a>—另一个中文断词库。</p></li>
+<li><p><a href="https://github.com/duanhongyi/genius" target="_blank" rel="noopener">genius</a>
+—基于条件随机域的中文断词库。</p></li>
+<li><p><a href="https://github.com/pprett/nut" target="_blank" rel="noopener">nut</a>
+—自然语言理解工具包。</p></li>
+</ul>
+<h3 id="通用机器学习"><a href="https://github.com/josephmisiti/awesome-machine-learning/blob/master/README.md#general-purpose-machine-learning-7" target="_blank" rel="noopener">通用机器学习</a></h3>
+<ul>
+<li><a href="https://github.com/CamDavidsonPilon/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers" target="_blank" rel="noopener">Bayesian
+Methods for Hackers</a> —Python语言概率规划的电子书</li>
+<li><a href="http://spark.apache.org/docs/latest/mllib-guide.html" target="_blank" rel="noopener">MLlib
+in Apache Spark</a>—Spark下的分布式机器学习库。</li>
+<li><a href="http://scikit-learn.org/" target="_blank" rel="noopener">scikit-learn</a>—基于SciPy的机器学习模块</li>
+<li><a href="http://graphlab.com/products/create/docs/" target="_blank" rel="noopener">graphlab-create</a>
+—包含多种机器学习模块的库（回归，聚类，推荐系统，图分析等），基于可以磁盘存储的DataFrame。</li>
+<li><a href="https://bigml.com/" target="_blank" rel="noopener">BigML</a>—连接外部服务器的库。</li>
+<li><a href="https://github.com/clips/pattern" target="_blank" rel="noopener">pattern</a>—Python的web挖掘模块</li>
+<li><a href="https://github.com/numenta/nupic" target="_blank" rel="noopener">NuPIC</a>—Numenta公司的智能计算平台。</li>
+<li><a href="https://github.com/lisa-lab/pylearn2" target="_blank" rel="noopener">Pylearn2</a>—基于Theano的机器学习库。</li>
+<li><a href="https://github.com/hannes-brt/hebel" target="_blank" rel="noopener">hebel</a>
+—Python编写的使用GPU加速的深度学习库。</li>
+<li><a href="https://github.com/piskvorky/gensim" target="_blank" rel="noopener">gensim</a>—主题建模工具。</li>
+<li><a href="https://github.com/pybrain/pybrain" target="_blank" rel="noopener">PyBrain</a>—另一个机器学习库。</li>
+<li><a href="https://github.com/muricoca/crab" target="_blank" rel="noopener">Crab</a>
+—可扩展的、快速推荐引擎。</li>
+<li><a href="https://github.com/ocelma/python-recsys" target="_blank" rel="noopener">python-recsys</a>
+—Python实现的推荐系统。</li>
+<li><a href="https://github.com/AllenDowney/ThinkBayes" target="_blank" rel="noopener">thinking
+bayes</a>—关于贝叶斯分析的书籍</li>
+<li><a href="https://github.com/echen/restricted-boltzmann-machines" target="_blank" rel="noopener">Restricted
+Boltzmann Machines</a> —Python实现的受限波尔兹曼机。[深度学习]。</li>
+<li><a href="https://github.com/pprett/bolt" target="_blank" rel="noopener">Bolt</a>
+—在线学习工具箱。</li>
+<li><a href="https://github.com/patvarilly/CoverTree" target="_blank" rel="noopener">CoverTree</a>
+—cover tree的Python实现，scipy.spatial.kdtree便捷的替代。</li>
+<li><a href="https://github.com/nilearn/nilearn" target="_blank" rel="noopener">nilearn</a>—Python实现的神经影像学机器学习库。</li>
+<li><a href="https://github.com/shogun-toolbox/shogun" target="_blank" rel="noopener">Shogun</a>—机器学习工具箱。</li>
+<li><a href="https://github.com/perone/Pyevolve" target="_blank" rel="noopener">Pyevolve</a>
+—遗传算法框架。</li>
+<li><a href="http://caffe.berkeleyvision.org/" target="_blank" rel="noopener">Caffe</a>
+—考虑了代码清洁、可读性及速度的深度学习框架</li>
+<li><a href="https://github.com/breze-no-salt/breze" target="_blank" rel="noopener">breze</a>—深度及递归神经网络的程序库，基于Theano。</li>
+</ul>
+<h3 id="数据分析数据可视化"><a href="https://github.com/josephmisiti/awesome-machine-learning/blob/master/README.md#data-analysis--data-visualization-5" target="_blank" rel="noopener">数据分析/数据可视化</a></h3>
+<ul>
+<li><a href="http://www.scipy.org/" target="_blank" rel="noopener">SciPy</a>
+—基于Python的数学、科学、工程开源软件生态系统。</li>
+<li><a href="http://www.numpy.org/" target="_blank" rel="noopener">NumPy</a>—Python科学计算基础包。</li>
+<li><a href="http://numba.pydata.org/" target="_blank" rel="noopener">Numba</a>
+—Python的低级虚拟机JIT编译器，Cython and
+NumPy的开发者编写，供科学计算使用</li>
+<li><a href="https://networkx.github.io/" target="_blank" rel="noopener">NetworkX</a>
+—为复杂网络使用的高效软件。</li>
+<li><a href="http://pandas.pydata.org/" target="_blank" rel="noopener">Pandas</a>—这个库提供了高性能、易用的数据结构及数据分析工具。</li>
+<li><a href="https://github.com/avelino/mining" target="_blank" rel="noopener">Open
+Mining</a>—Python中的商业智能工具（Pandas web接口）。</li>
+<li><a href="https://github.com/pymc-devs/pymc" target="_blank" rel="noopener">PyMC</a>
+—MCMC采样工具包。</li>
+<li><a href="https://github.com/quantopian/zipline" target="_blank" rel="noopener">zipline</a>—Python的算法交易库。</li>
+<li><a href="https://pydy.org/" target="_blank" rel="noopener">PyDy</a>—全名Python
+Dynamics，协助基于NumPy, SciPy, IPython以及
+matplotlib的动态建模工作流。</li>
+<li><a href="https://github.com/sympy/sympy" target="_blank" rel="noopener">SymPy</a>
+—符号数学Python库。</li>
+<li><a href="https://github.com/statsmodels/statsmodels" target="_blank" rel="noopener">statsmodels</a>—Python的统计建模及计量经济学库。</li>
+<li><a href="http://www.astropy.org/" target="_blank" rel="noopener">astropy</a>
+—Python天文学程序库，社区协作编写</li>
+<li><a href="http://matplotlib.org/" target="_blank" rel="noopener">matplotlib</a>
+—Python的2D绘图库。</li>
+<li><a href="https://github.com/ContinuumIO/bokeh" target="_blank" rel="noopener">bokeh</a>—Python的交互式Web绘图库。</li>
+<li><a href="https://plot.ly/python" target="_blank" rel="noopener">plotly</a> —Python and
+matplotlib的协作web绘图库。</li>
+<li><a href="https://github.com/wrobstory/vincent" target="_blank" rel="noopener">vincent</a>—将Python数据结构转换为Vega可视化语法。</li>
+<li><a href="https://github.com/mikedewar/d3py" target="_blank" rel="noopener">d3py</a>—Python的绘图库，基于D3.js。</li>
+<li><a href="https://github.com/yhat/ggplot" target="_blank" rel="noopener">ggplot</a>
+—和R语言里的ggplot2提供同样的API。</li>
+<li><a href="https://github.com/kartograph/kartograph.py" target="_blank" rel="noopener">Kartograph.py</a>—Python中渲染SVG图的库，效果漂亮。</li>
+<li><a href="http://pygal.org/" target="_blank" rel="noopener">pygal</a>—Python下的SVG图表生成器。</li>
+<li><a href="https://github.com/twitter/pycascading" target="_blank" rel="noopener">pycascading</a></li>
+</ul>
+<h3 id="杂项脚本ipython笔记代码库"><a href="https://github.com/josephmisiti/awesome-machine-learning/blob/master/README.md#misc-scripts--ipython-notebooks--codebases" target="_blank" rel="noopener">杂项脚本/iPython笔记/代码库</a></h3>
+<ul>
+<li><a href="https://github.com/rasbt/pattern_classification" target="_blank" rel="noopener">pattern_classification</a></li>
+<li><a href="https://github.com/Wavelets/ThinkStats2" target="_blank" rel="noopener">thinking stats
+2</a></li>
+<li><a href="https://github.com/hyperopt/hyperopt-sklearn" target="_blank" rel="noopener">hyperopt</a></li>
+<li><a href="https://github.com/numenta/nupic" target="_blank" rel="noopener">numpic</a></li>
+<li><a href="https://github.com/ged-lab/2012-paper-diginorm" target="_blank" rel="noopener">2012-paper-diginorm</a></li>
+<li><a href="https://github.com/ogrisel/notebooks" target="_blank" rel="noopener">ipython-notebooks</a></li>
+<li><a href="https://github.com/CamDavidsonPilon/decision-weights" target="_blank" rel="noopener">decision-weights</a></li>
+<li><a href="https://github.com/Wavelets/sarah-palin-lda" target="_blank" rel="noopener">Sarah Palin
+LDA</a> —Sarah Palin关于主题建模的电邮。</li>
+<li><a href="https://github.com/Wavelets/diffusion-segmentation" target="_blank" rel="noopener">Diffusion
+Segmentation</a> —基于扩散方法的图像分割算法集合。</li>
+<li><a href="https://github.com/Wavelets/scipy-tutorials" target="_blank" rel="noopener">Scipy
+Tutorials</a> —SciPy教程，已过时，请查看scipy-lecture-notes</li>
+<li><a href="https://github.com/marcelcaraciolo/crab" target="_blank" rel="noopener">Crab</a>—Python的推荐引擎库。</li>
+<li><a href="https://github.com/maxsklar/BayesPy" target="_blank" rel="noopener">BayesPy</a>—Python中的贝叶斯推断工具。</li>
+<li><a href="https://github.com/GaelVaroquaux/scikit-learn-tutorial" target="_blank" rel="noopener">scikit-learn
+tutorials</a>—scikit-learn学习笔记系列</li>
+<li><a href="https://github.com/madhusudancs/sentiment-analyzer" target="_blank" rel="noopener">sentiment-analyzer</a>
+—推特情绪分析器</li>
+<li><a href="https://github.com/fabianp/group_lasso" target="_blank" rel="noopener">group-lasso</a>—坐标下降算法实验，应用于（稀疏）群套索模型。</li>
+<li><a href="https://github.com/mne-tools/mne-python-notebooks" target="_blank" rel="noopener">mne-python-notebooks</a>—使用
+mne-python进行EEG/MEG数据处理的IPython笔记</li>
+<li><a href="https://github.com/jvns/pandas-cookbook" target="_blank" rel="noopener">pandas
+cookbook</a>—使用Python pandas库的方法书。</li>
+<li><a href="https://github.com/BRML/climin" target="_blank" rel="noopener">climin</a>—机器学习的优化程序库，用Python实现了梯度下降、LBFGS、rmsprop、adadelta
+等算法。</li>
+</ul>
+<h3 id="kaggle竞赛源代码"><a href="https://github.com/josephmisiti/awesome-machine-learning/blob/master/README.md#kaggle-competition-source-code" target="_blank" rel="noopener">Kaggle竞赛源代码</a></h3>
+<ul>
+<li><a href="https://github.com/hammer/wikichallenge" target="_blank" rel="noopener">wiki challange</a>
+—Kaggle上一个维基预测挑战赛 Dell Zhang解法的实现。</li>
+<li><a href="https://github.com/amueller/kaggle_insults" target="_blank" rel="noopener">kaggle
+insults</a>—Kaggle上”从社交媒体评论中检测辱骂“竞赛提交的代码</li>
+<li><a href="https://github.com/MLWave/kaggle_acquire-valued-shoppers-challenge" target="_blank" rel="noopener">kaggle_acquire-valued-shoppers-challenge</a>—Kaggle预测回头客挑战赛的代码</li>
+<li><a href="https://github.com/zygmuntz/kaggle-cifar" target="_blank" rel="noopener">kaggle-cifar</a>
+—Kaggle上CIFAR-10 竞赛的代码，使用cuda-convnet</li>
+<li><a href="https://github.com/zygmuntz/kaggle-blackbox" target="_blank" rel="noopener">kaggle-blackbox</a>
+—Kaggle上blackbox赛代码，关于深度学习。</li>
+<li><a href="https://github.com/zygmuntz/kaggle-accelerometer" target="_blank" rel="noopener">kaggle-accelerometer</a>
+—Kaggle上加速度计数据识别用户竞赛的代码</li>
+<li><a href="https://github.com/zygmuntz/kaggle-advertised-salaries" target="_blank" rel="noopener">kaggle-advertised-salaries</a>
+—Kaggle上用广告预测工资竞赛的代码</li>
+<li><a href="https://github.com/zygmuntz/kaggle-amazon" target="_blank" rel="noopener">kaggle
+amazon</a> —Kaggle上给定员工角色预测其访问需求竞赛的代码</li>
+<li><a href="https://github.com/zygmuntz/kaggle-bestbuy_big" target="_blank" rel="noopener">kaggle-bestbuy_big</a>—Kaggle上根据bestbuy用户查询预测点击商品竞赛的代码（大数据版）</li>
+<li><a href="https://github.com/zygmuntz/kaggle-bestbuy_small" target="_blank" rel="noopener">kaggle-bestbuy_small</a>—Kaggle上根据bestbuy用户查询预测点击商品竞赛的代码（小数据版）</li>
+<li><a href="https://github.com/kastnerkyle/kaggle-dogs-vs-cats" target="_blank" rel="noopener">Kaggle
+Dogs vs. Cats</a> —Kaggle上从图片中识别猫和狗竞赛的代码</li>
+<li><a href="https://github.com/benanne/kaggle-galaxies" target="_blank" rel="noopener">Kaggle Galaxy
+Challenge</a> —Kaggle上遥远星系形态分类竞赛的优胜代码</li>
+<li><a href="https://github.com/zygmuntz/kaggle-gender" target="_blank" rel="noopener">Kaggle
+Gender</a> —Kaggle竞赛：从笔迹区分性别</li>
+<li><a href="https://github.com/zygmuntz/kaggle-merck" target="_blank" rel="noopener">Kaggle
+Merck</a>—Kaggle上预测药物分子活性竞赛的代码（默克制药赞助）</li>
+<li><a href="https://github.com/zygmuntz/kaggle-stackoverflow" target="_blank" rel="noopener">Kaggle
+Stackoverflow</a>—Kaggle上 预测Stack
+Overflow网站问题是否会被关闭竞赛的代码</li>
+<li><a href="https://github.com/zygmuntz/wine-quality" target="_blank" rel="noopener">wine-quality</a>
+—预测红酒质量。</li>
+</ul>
+<h2 id="学习网站">学习网站</h2>
+<ul>
+<li><a href="http://deeplearning.net/" target="_blank" rel="noopener">deeplearning.net</a>：一个非常好的机器学习网站，有<a href="http://deeplearning.net/datasets/" target="_blank" rel="noopener">dataset</a>、<a href="http://deeplearning.net/software_links/" target="_blank" rel="noopener">software</a>、<a href="http://deeplearning.net/reading-list/" target="_blank" rel="noopener">reading list</a>连接；</li>
+<li><a href="http://www.visionbib.com/" target="_blank" rel="noopener">VisionBib.Com</a>：学术大牛整理的CV资源；</li>
+<li><a href="http://homepages.inf.ed.ac.uk/rbf/CVonline/" target="_blank" rel="noopener">CVonline</a>有一个非常全面的资源链接；</li>
+<li><a href="http://www.aiweibang.com/u/246181" target="_blank" rel="noopener">新智元</a>和<a href="http://www.jiqizhixin.com/" target="_blank" rel="noopener">机器之心</a>是很好的机器学习资讯平台，另外推荐一些微信公众号：机器学习研究会，程序媛的日常。</li>
+<li><a href="http://www.kdnuggets.com/" target="_blank" rel="noopener">KDnuggets</a>：各种资源，博文，课程、软件、Datasets等链接；</li>
+<li>国内的两个网站：<a href="http://www.52ml.net/star" target="_blank" rel="noopener">我爱机器学习</a>，<a href="http://ml.memect.com/" target="_blank" rel="noopener">机器学习日报</a>；</li>
+<li>Data Sets：<a href="http://archive.ics.uci.edu/ml/" target="_blank" rel="noopener">UCI Machine
+Learning Repository</a>，<a href="https://blog.bigml.com/list-of-public-data-sources-fit-for-machine-learning/" target="_blank" rel="noopener">List
+of Public Data Sources Fit for Machine Learning</a>；</li>
+<li>Competitions：<a href="https://www.kaggle.com/" target="_blank" rel="noopener">Kaggle</a>，<a href="http://www.data-mining-cup.de/en/dmc-competition/" target="_blank" rel="noopener">DMC</a>，<a href="https://knowledgepit.fedcsis.org/" target="_blank" rel="noopener">Knowledge Pit</a>，<a href="http://tunedit.org/challenges" target="_blank" rel="noopener">TunedIT</a>，<a href="http://www.drivendata.org/competitions/" target="_blank" rel="noopener">DrivenData</a></li>
+</ul>
+<h2 id="python-工具箱">Python 工具箱</h2>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/38259784" target="_blank" rel="noopener">用python批量处理word文档</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/73199573" target="_blank" rel="noopener">教你装逼了：怎么样发布你的
+Python 代码给别人 “pip install”</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/32874659" target="_blank" rel="noopener">Python实现动态图的解析、合成与倒放</a></li>
+<li><a href="https://blog.csdn.net/u011503970/article/details/18615537" target="_blank" rel="noopener">Opencv
+例程讲解 6 ---- 图片融合 addWeighted到底有多快？</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/68217206" target="_blank" rel="noopener">Python，告别Print？</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/64053192" target="_blank" rel="noopener">Python为什么要使用描述符？</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/54436238" target="_blank" rel="noopener">弹幕君，别挡着我看小姐姐！</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/25465581" target="_blank" rel="noopener">每个程序员都应该阅读的 10
+篇论文（至少两遍）</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/53732081" target="_blank" rel="noopener">使用Pillow来进行图像处理</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/76960575" target="_blank" rel="noopener">深度学习在图像处理的应用一览</a></li>
+<li><a href="https://blog.csdn.net/u012005313/article/details/84035371" target="_blank" rel="noopener">Python
+Numpy gradient源码解析</a></li>
+<li><a href="https://github.com/JimmyHHua/opencv_tutorials/blob/master/README_CN.md#opencv-40-tutorial" target="_blank" rel="noopener">中文版：OpenCV
+4.0 Tutorial</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/69365714" target="_blank" rel="noopener">【图像处理】边缘检测</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/29541638" target="_blank" rel="noopener">深度学习 +
+OpenCV，Python实现实时视频目标检测</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/63533966" target="_blank" rel="noopener">使用Python+OpenCV进行图像处理（二）|
+视觉入门</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/64536145" target="_blank" rel="noopener">使用Python+OpenCV进行图像处理（三）|
+视觉入门</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/35591393" target="_blank" rel="noopener">【小林的OpenCV基础课
+18】两种经典角点检测算法/萌の胜利</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/25556276" target="_blank" rel="noopener">使用代码将照片变成卡通图片——Python篇</a></li>
+<li><a href="https://www.pytorchtutorial.com/plotneuralnet/" target="_blank" rel="noopener">用
+PlotNeuralNet 画神经网络的结构图</a></li>
+<li><a href="https://www.jiqizhixin.com/articles/2018-11-07-10" target="_blank" rel="noopener">HiddenLayer：可视化PyTorch、TensorFlow神经网络图的轻量级工具！</a></li>
+<li><a href="https://cloud.tencent.com/developer/article/1442210" target="_blank" rel="noopener">PyTorch &amp;
+PyTorch Geometric图神经网络(GNN)实战</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/59924278" target="_blank" rel="noopener">机器学习成才之路：这是一条GitHub高赞的学习路径</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/56932036" target="_blank" rel="noopener">强推！《PyTorch中文手册》开源！附资源下载链接！</a></li>
+<li><a href="https://cloud.tencent.com/developer/article/1030422" target="_blank" rel="noopener">【独家】一文读懂文字识别（OCR）</a></li>
+<li><a href="https://cloud.tencent.com/developer/article/1446707" target="_blank" rel="noopener">做项目一定用得到的NLP资源</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/64490383" target="_blank" rel="noopener">英文教程太难啃？这里有一份TensorFlow2.0中文教程（持续更新中）</a></li>
+<li><a href="https://www.cnblogs.com/HelloGreen/p/8817863.html" target="_blank" rel="noopener">Dask教程</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/60246173" target="_blank" rel="noopener">整理了70个Python实战项目列表，都有完整且详细的教程</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/25939866" target="_blank" rel="noopener">几个网站 ·
+超乎想象的AI人工智能</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/60246173" target="_blank" rel="noopener">张小森：整理了70个Python实战项目列表，都有完整且详细的教程</a></li>
+<li><a href="https://github.com/BookCollections/python3-cookbook" target="_blank" rel="noopener">《Python3
+Cookbook》 3rd Edition 翻译</a></li>
+<li><a href="https://pymotw.com/3/zipfile/#module-zipfile" target="_blank" rel="noopener" title="Permalink to this headline">zipfile — ZIP Archive Access</a></li>
+<li><a href="https://opencv-python-tutorials.readthedocs.io/zh/latest/" target="_blank" rel="noopener">OpenCV-Python
+Tutorials(4.0.0)</a></li>
+<li><a href="https://www.matplotlib.org.cn/" target="_blank" rel="noopener">Matplotlib
+中文文档</a></li>
+</ul>
+<h2 id="ocr">OCR</h2>
+<ul>
+<li><a href="https://blog.csdn.net/dQCFKyQDXYm3F8rB0/article/details/82455892" target="_blank" rel="noopener">OCR大突破：Facebook推出大规模图像文字检测识别系统——Rosetta</a></li>
+<li><a href="http://aosabook.org/en/500L/optical-character-recognition-ocr.html" target="_blank" rel="noopener">Optical
+Character Recognition (OCR)</a></li>
+<li><a href="https://blog.csdn.net/zhubenfulovepoem/article/details/6803150" target="_blank" rel="noopener">字符识别OCR研究一（模板匹配&amp;BP神经网络训练）</a></li>
+<li><a href="https://blog.csdn.net/byxdaz/article/details/469557" target="_blank" rel="noopener">OCR(脱机手写汉字识别与印刷汉字识别)</a></li>
+<li><a href="https://blog.csdn.net/kangshuaibing/article/details/84099733" target="_blank" rel="noopener">文字识别总结（OCR）</a></li>
+<li><a href="https://blog.csdn.net/bjbz_cxy/article/details/80486160" target="_blank" rel="noopener">基于Opencv的手写字识别</a></li>
+<li><a href="https://blog.csdn.net/foreseerwang/article/details/80833749" target="_blank" rel="noopener">手写中文文章识别（1）——问题描述</a></li>
+<li><a href="https://github.com/HuiyanWen" target="_blank" rel="noopener">HuiyanWen</a>/<strong><a href="https://github.com/HuiyanWen/bysj_hit" target="_blank" rel="noopener">bysj_hit</a></strong>:
+哈工大百优毕业论文。采用LeNet、VggNet、AlexNet、ResNet、CPL等网络识别21003类手写汉字，并采用标签映射、分级聚类、笔画编码等方法改进速度和准确率。</li>
+<li>基于深度学习的银行卡号识别：<a href="https://github.com/HuiyanWen" target="_blank" rel="noopener">HuiyanWen</a>/<strong><a href="https://github.com/HuiyanWen/RJB" target="_blank" rel="noopener">RJB</a></strong></li>
+<li><a href="https://github.com/HuiyanWen" target="_blank" rel="noopener">HuiyanWen</a>/<strong><a href="https://github.com/HuiyanWen/CPL" target="_blank" rel="noopener">CPL</a></strong></li>
+<li>ICDAR2019 ReCTS脱机单字识别：<a href="https://github.com/HuiyanWen" target="_blank" rel="noopener">HuiyanWen</a>/<strong><a href="https://github.com/HuiyanWen/ICDAR2019-ReCTS" target="_blank" rel="noopener">ICDAR2019-ReCTS</a></strong></li>
+<li>图像增强：<a href="https://github.com/HuiyanWen" target="_blank" rel="noopener">HuiyanWen</a>/<strong><a href="https://github.com/HuiyanWen/pre_pic" target="_blank" rel="noopener">pre_pic</a></strong></li>
+<li><a href="https://blog.csdn.net/yql_617540298/article/details/82251994" target="_blank" rel="noopener">keras+卷积神经网络HWDB手写汉字识别</a></li>
+<li><a href="https://blog.csdn.net/MLlearnerTJ/article/details/80607388" target="_blank" rel="noopener">HWDB-1.1
+手写汉字CNN识别模型训练</a></li>
+<li><a href="https://blog.csdn.net/zchang81/article/details/77085165" target="_blank" rel="noopener">TensorFlow手写汉字识别</a></li>
+<li><a href="https://blog.csdn.net/foreseerwang/article/details/80842498" target="_blank" rel="noopener">手写中文文章识别（2）——样本集构建</a></li>
+<li><a href="https://blog.csdn.net/qq_27280237/article/details/82429547" target="_blank" rel="noopener">tensorflow下手写汉字识别及其可视化</a></li>
+<li><a href="https://blog.csdn.net/yuXuan_huLu/article/details/78133995" target="_blank" rel="noopener">tensorFlow与中文手写汉字识别</a></li>
+<li><a href="https://blog.csdn.net/JohinieLi/article/details/69389980" target="_blank" rel="noopener">python
+读取、保存、二值化、灰度化图片+opencv处理图片的方法</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/24899387" target="_blank" rel="noopener">机器学习进阶笔记之八
+- TensorFlow与中文手写汉字识别</a></li>
+<li><a href="https://blog.csdn.net/m0_37657841/article/details/88672119" target="_blank" rel="noopener">手写汉字识别的发展综述</a></li>
+<li><a href="https://blog.csdn.net/foreseerwang/article/details/80914473" target="_blank" rel="noopener">手写中文文章识别（3）——data
+feeding</a></li>
+<li><a href="https://blog.csdn.net/MLlearnerTJ/article/details/80607388" target="_blank" rel="noopener">HWDB-1.1
+手写汉字CNN识别模型训练</a></li>
+<li><a href="https://blog.csdn.net/as472780551/article/details/78582641" target="_blank" rel="noopener">2017.11.20TensorFlow手写汉字识别</a></li>
+<li><a href="https://blog.csdn.net/jy02660221/article/details/52012543" target="_blank" rel="noopener">汉字常用特征的提取方法详解</a></li>
+<li><a href="https://blog.csdn.net/weixin_44510615/article/details/89791517" target="_blank" rel="noopener">GAN处理手写图片数据集</a></li>
+<li><a href="https://blog.csdn.net/qq_35337126/article/details/84639815" target="_blank" rel="noopener">联机与脱机
+手写汉字识别</a></li>
+<li><a href="https://cloud.tencent.com/developer/information/手写体汉字识别" target="_blank" rel="noopener">手写体汉字识别</a></li>
+<li><a href="http://www.linyibin.cn/2016/11/10/technology-IME-HandWritingRecognization/" target="_blank" rel="noopener">Technology-手写汉字识别</a></li>
+<li><a href="https://www.jianshu.com/p/e4c429c8fe97" target="_blank" rel="noopener">300行代码实现手写汉字识别</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/24698483" target="_blank" rel="noopener">TensorFlow与中文手写汉字识别</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/68356509" target="_blank" rel="noopener">TensorFlow 2.0
+中文手写字识别（汉字OCR）</a></li>
+<li><a href="https://www.zhihu.com/question/20191727" target="_blank" rel="noopener">OCR文字识别用的是什么算法？</a></li>
+<li><a href="https://www.cnblogs.com/skyfsm/p/10335717.html" target="_blank" rel="noopener">【OCR技术系列之七】端到端不定长文字识别CRNN算法详解</a></li>
+<li><a href="https://github.com/jiangxiluning" target="_blank" rel="noopener">jiangxiluning</a>/<strong><a href="https://github.com/jiangxiluning/chinese-ocr" target="_blank" rel="noopener">chinese-ocr</a></strong></li>
+<li><a href="https://github.com/xiaofengShi" target="_blank" rel="noopener">xiaofengShi</a>/<strong><a href="https://github.com/xiaofengShi/CHINESE-OCR" target="_blank" rel="noopener">CHINESE-OCR</a></strong></li>
+<li><a href="https://blog.csdn.net/liuxiaoheng1992/article/details/82632594" target="_blank" rel="noopener">中文文字检测与识别的评测方法</a></li>
+</ul>
+<h2 id="tsr汽车安全系统的交通标志识别">TSR（汽车安全系统的交通标志识别）</h2>
+<ul>
+<li><a href="http://www.itas-hk.com/news/cjwt/86.html" target="_blank" rel="noopener">什么是汽车安全系统的交通标志识别（TSR）？</a></li>
+<li><a href="https://blog.csdn.net/shebao3333/article/details/79008688" target="_blank" rel="noopener">机器学习实战：用胶囊网络识别交通标志</a></li>
+<li><a href="https://blog.csdn.net/a853459004/article/details/55228904" target="_blank" rel="noopener">Traffic
+Sign Recognition</a></li>
+<li><a href="https://cn.bing.com/academic/search?FORM=SAFOS&amp;q=Traffic%20sign%20recognition" target="_blank" rel="noopener">必应：Traffic
+sign recognition</a></li>
+<li><a href="https://github.com/topics/traffic-sign-recognition" target="_blank" rel="noopener">Topic:
+traffic-sign-recognition</a></li>
+<li><a href="https://www.kaggle.com/meowmeowmeowmeowmeow/gtsrb-german-traffic-sign" target="_blank" rel="noopener">Kaggle:
+GTSRB - German Traffic Sign Recognition Benchmark</a></li>
+<li><a href="http://benchmark.ini.rub.de/?section=gtsrb&amp;subsection=news" target="_blank" rel="noopener">数据：The
+German Traffic Sign Recognition Benchmark</a></li>
+<li><a href="https://ww2.mathworks.cn/help/vision/examples/traffic-warning-sign-recognition.html" target="_blank" rel="noopener">Matlab:
+Traffic Warning Sign Recognition</a></li>
+</ul>
+<h2 id="自动驾驶">自动驾驶</h2>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/66320870" target="_blank" rel="noopener">如何成为一名合格的自动驾驶工程师？</a></li>
+<li><a href="https://blog.csdn.net/orange_littlegirl/article/details/90453585" target="_blank" rel="noopener">从小白到自动驾驶算法工程师的转型</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/56594089" target="_blank" rel="noopener">一个自动驾驶工程师眼中的自动驾驶</a></li>
+</ul>
+<h2 id="an-open-autonomous-driving-platform">An open autonomous driving
+platform</h2>
+<ul>
+<li>百度：<a href="https://github.com/ApolloAuto" target="_blank" rel="noopener">ApolloAuto</a>/<strong><a href="https://github.com/ApolloAuto/apollo" target="_blank" rel="noopener">apollo</a></strong></li>
+<li>微软：<a href="https://github.com/microsoft" target="_blank" rel="noopener">microsoft</a>/<strong><a href="https://github.com/microsoft/AutonomousDrivingCookbook" target="_blank" rel="noopener">AutonomousDrivingCookbook</a></strong></li>
+</ul>
+<h2 id="chaos">chaos</h2>
+<ul>
+<li><a href="https://www.cnblogs.com/skyfsm/category/1000207.html" target="_blank" rel="noopener">opencv探索</a></li>
+<li><a href="https://www.cnblogs.com/xiaotie/archive/2009/01/15/1376677.html" target="_blank" rel="noopener">车牌识别及验证码识别的一般思路</a></li>
+<li><a href="https://github.com/aosabook" target="_blank" rel="noopener">aosabook</a>/<strong><a href="https://github.com/aosabook/500lines" target="_blank" rel="noopener">500lines</a></strong></li>
+<li><a href="https://blog.csdn.net/u014380165/article/details/76946425" target="_blank" rel="noopener">CVPR2017-如何在无标签数据集上训练模型</a></li>
+<li><a href="https://blog.csdn.net/u010402786/article/details/49947007" target="_blank" rel="noopener">深度学习数据集（二）</a></li>
+</ul>
+<h3 id="traffic-sign-detection">traffic sign detection</h3>
+<ul>
+<li><a href="https://yq.aliyun.com/articles/195729" target="_blank" rel="noopener">准确率98%的深度学习交通标志识别是如何做到的？</a></li>
+<li><a href="https://www.jianshu.com/p/d8feaddc7bdf" target="_blank" rel="noopener">[译]基于Tensorflow的交通标志识别</a></li>
+<li><a href="https://blog.csdn.net/majichen95/article/details/80380668" target="_blank" rel="noopener">Opencv3+VS2017实现交通标志检测</a></li>
+<li><a href="https://blog.csdn.net/u010323150/article/details/84341291" target="_blank" rel="noopener">中国交通标志检测数据集</a></li>
+<li><a href="https://blog.csdn.net/qq_19281769/article/details/84859993" target="_blank" rel="noopener">交通标牌检测与识别</a></li>
+<li><a href="https://blog.csdn.net/xiaojiajia007/article/details/53183102" target="_blank" rel="noopener">交通标志的检测与识别</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/25754846" target="_blank" rel="noopener">卷积：如何成为一个很厉害的神经网络</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/57186328" target="_blank" rel="noopener">自动驾驶中基于车道线的车体定位方法介绍</a></li>
+<li><a href="https://blog.csdn.net/cg129054036/article/details/88751757" target="_blank" rel="noopener">Apollo进阶课程
+⑬ - Apollo无人车自定位技术入门</a></li>
+</ul>
+<h3 id="自动标注技术">自动标注技术</h3>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/47476910" target="_blank" rel="noopener">图像标注，三倍加速：谷歌AI新方案，数据民工的福音
+| Demo可玩耍</a></li>
+</ul>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+        </div>
+        <div class="card">
+            
+
+            
+
+            
+
+            
+
+            
+        </div>
+    </div>
+</main>
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="https://cgy233.github.io" target="_blank">陈广意</a>
+            |&nbsp;Powered by&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/xinetzone/xinetzone.github.io" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">14.7k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "6";
+                    var startDate = "30";
+                    var startHour = "2";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/cgy233" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:cgy233@outlook.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1781387847" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1781387847" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/rss2.xml" class="tooltipped" target="_blank" data-tooltip="RSS2 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/js/matery.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/background/canvas-nest.js"></script>
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/gh/cgy233/cgy233.github.io/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":200,"height":300},"mobile":{"show":true,"scale":0.5},"react":{"opacity":0.7},"log":false});</script></body>
+
+</html>
