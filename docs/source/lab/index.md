@@ -5,9 +5,8 @@ layout: lab
 date: 2019-09-11 22:55:16
 ---
 <!-- slide -->
-## 欢迎进入水之界
 
-刘新伟的博客与AI
+-大佬的博客[刘新伟](https://xinetzone.github.io)
 
 - 一些数据集处理相关的 [datasetsome](https://dataloaderx.github.io/datasetsome/)
 - 一个项目的通用模板（python） [projects](https://xinetzone.github.io/projects/)
